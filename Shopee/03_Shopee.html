@@ -14,55 +14,50 @@
             margin: auto;
             background-color: white;
         }
-        header{
+        .list{
             display: flex;
-            justify-content: space-between;
             align-items: center;
             border-bottom:2px solid rgba(0,0,0,.05);
             margin-bottom: 10px;
             padding: 10px 20px;
-            height: 51px;
+            line-height: 30px;
+            list-style: none;
         }
-        .left-side{
-            display: flex;
-            align-items: center;
+        .iist li{
+            padding: 0px 7px;
         }
-        .part a{
+        .list a{
             text-decoration: none;
             color: rgb(208, 1,27);
-            margin-left: 15px;
+            font-weight: 900;
+            margin-left: 5px;
         }
-        .part a::after{
+        .list .head::after{
             content: "";
             border-right: 1px solid lightgray;
-            padding-left: 15px;
+            margin-left: 15px;
         }
-        .message{
-            display: flex;
-            align-items: center;          
-            margin: 5px;
-            padding: 5px;
-        }
-        .message img{
+        li img{
             height: 17px;
             width: 17px;
-            margin: 0 5px;
+            position: relative;
+            margin: 0 8px;
+            top: 2px;
+            left: 8px;
+        }
+        .right-side{
+            position: relative;
+            left: 670px;
+            color: #d0011b;
+            font-weight: 900;
+            text-decoration: none;
         }
         .right-side img{
             height: 14px;
             width: 14px;
+            padding: 0.08rem;
         }
-        .right-side a{
-            text-decoration: none;
-            color: #d0011b;
-        }
-        .right-side span{
-            font-size: 13px;
-        }
-
-
-
-
+    
         .lower-part{
             display: flex;
             padding: 0 10px
@@ -98,35 +93,28 @@
 <body>
 
     <div class="section">
-        <div class="header">
-            <!-- 區塊標頭 -->
-            
-            <div class="left-side">
-                <div class="part">
-                    <a href="https://shopee.tw/mall">蝦皮商城</a>
-                </div>
-                <div class="message">
-                    <img src="./Shopee/pic/return_icon.png" alt="鑑賞期圖示">15天鑑賞期
-                </div>
-                <div class="message">
-                    <img src="./Shopee/pic/truck_icon.png" alt="退貨圖示">蝦皮安心退
-                </div>
-                <div class="message">
-                    <img src="./Shopee/pic/genuine_icon.png" alt="正品圖示">正品保障
-                </div>
-            </div>
+        
+        <!-- 區塊標頭 -->    
+        <ul class="list">
+            <li class="head">
+                <a href="https://shopee.tw/mall">蝦皮商城</a>
+            </li>
+            <li>
+                <img src="./Shopee/pic/return_icon.png" alt="鑑賞期圖示">15天鑑賞期
+            </li>
+            <li>
+                <img src="./Shopee/pic/truck_icon.png" alt="退貨圖示">蝦皮安心退
+            </li>
+            <li>
+                <img src="./Shopee/pic/genuine_icon.png" alt="正品圖示">正品保障
+            </li>
+            <a href="https://shopee.tw/mall" class="right-side">
+                <span>查看全部</span>
+                <img src="./Shopee/pic/watchAll_arrow.png" alt="查看全部">
+            </a>
+        </ul>
 
-            <div class="right-side">
-                <a href="https://shopee.tw/mall">
-                    <span>查看全部</span>
-                    <img src="./Shopee/pic/watchAll_arrow.png" alt="查看全部">
-                </a>
-            </div>
-            
-        
-        </div>
-        
-        
+          
         <div class="lower-part">
             <!-- 左(三分之一) -->
             <div class="left-Ads">
