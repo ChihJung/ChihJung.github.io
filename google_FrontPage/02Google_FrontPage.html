@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>melody新分頁</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body{
+            background-color: rgb(53,54,58);
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .major-logo img{
+            width: 272px;
+            height: 92px;
+        }
+        .search-bar{
+            display: flex;
+            height: 44px;
+            width: 561px;
+            margin: 40px 0 30px;
+            background-color: white;
+            border-radius: 50px;
+        }
+        .search img{
+            width: 24px;
+            padding: 10px 10px 10px 15px;
+        }
+        
+        input{
+            width: 467px;
+            height: 44px;
+            font-size: medium;
+            outline: none;
+            border: 1px solid white;
+        }
+        .voicesearch img{
+            width: 12px;
+            padding: 13px 10px 7px 15px;
+        }
+
+
+        .shortcut-group{
+            display: flex;
+        }
+        .shortcut{
+            width: 112px;
+            height: 112px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .shortcut-backgroud{
+            width: 48px;
+            height: 48px;
+            background-color: rgba(32, 33, 36, 1);
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .shortcut p{
+            font-size: 14px;
+            font-weight: 400;
+            font-family: Roboto, 'Segoe UI',Arial,'Microsoft Jhenghei',sans-serif;
+        }
+        .shortcut:hover{
+            border-radius: 5px;
+            background-color: #484848;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Logo區 -->
+        <div class="major-logo">
+            <img src="./Google/pic/Google_Logo.png" alt="Google Logo">
+        </div>
+
+        <!-- 搜尋區 -->
+        <div class="search-bar">
+            <div class="search">
+                <img src="./Google/pic/search_Icon.png" alt="搜尋圖示">
+            </div>
+            
+            <input type="search" placeholder="搜尋 Google 或輸入網址">
+            
+            <div class="voicesearch">
+                <a href="#">
+                    <img src="./Google/pic/Google_Microphone_Logo.png" alt="語音搜尋">
+                </a>
+            </div>
+        </div>
+
+        <!-- 經常預覽區 -->
+        <div class="shortcut-group">
+            <div class="shortcut">
+                <div class="shortcut-backgroud">
+                    <img src="./Google/pic/Youtube_Logo.png" alt="Youtube-icon" width="24px">
+                </div>
+                <div class="shortcut-name">
+                    <p>Youtube</p>
+                </div>
+                
+            </div>
+            <div class="shortcut">
+                <div class="shortcut-backgroud">
+                    <img src="./Google/pic/add_Icon.png" alt="plus-icon" width="15px">
+                </div>
+                <div class="shortcut-name">
+                    <p>新增捷徑</p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+</body>
+</html>
