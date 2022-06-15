@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset/reset.css">
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        .container{
+            background-color: white;
+            width: 1200px;
+            margin: auto;
+        }
+        .mall-nav{
+            display: flex;
+        }
+        .mall-nav .nav-major-content{
+            width: 600px;
+            display: flex;
+            margin: 10px;
+        }
+        .mall-nav .nav-major-content .service-list{
+            display: flex;
+        }
+        .mall-nav .nav-major-content .service-list .service{
+            margin-right: 15px;
+        }
+        .mall-nav .nav-major-content a{
+            text-decoration: none;
+            color: red;
+            font-size: 20px;
+            font-weight: 600;
+            padding-right: 15px;
+        }
+        .mall-nav .nav-major-content .service-list .service p{
+            display: inline;
+            margin-left: 5px;
+        }
+        .mall-nav .nav-major-content .service-list .service img{
+            vertical-align: center;
+        }
+        
+        .mall-nav .watchmore{
+            width: 600px;
+            text-align: right;
+            margin: 10px;
+        }
+        .mall-nav .watchmore a{
+            text-decoration: none;
+            color: red;
+            font-weight: 900;
+        }
+        /* .mall-nav .watchmore p{
+            display: inline;
+            vertical-align: center;
+            margin-right:5px;
+        } */
+        
+
+        .promotion{
+            display: flex;
+        }
+        .promotion .disaccount{
+            width: 400px;
+        }
+        .promotion .disaccount img{
+            width: 380px;
+            margin: 10px;
+        }
+        .promotion .store-list{
+            width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .promotion .store-list .store{
+            width: 180px;
+            margin: 10px;
+        }
+        .promotion .store-list .store img{
+            width: 100%;
+        }
+        .promotion .store-list .store h3{
+            display: none;
+        }
+        .promotion .store-list .store p{
+            color: red;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- upper -->
+        <div class="mall-nav">
+            <div class="nav-major-content">
+                <a href="#">
+                    <h3>蝦皮商城</h3>
+                </a>
+                <ul class="service-list">
+                    <li class="service">
+                        <img src="https://fakeimg.pl/15x15/200">
+                        <p>15天鑑賞期</p>
+                    </li>
+                    <li class="service">
+                        <img src="https://fakeimg.pl/15x15/200">
+                        <p>蝦皮安心退</p>
+                    </li>
+                    <li class="service">
+                        <img src="https://fakeimg.pl/15x15/200">
+                        <p>正品保障</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="watchmore">
+                <a href="#">
+                    查看全部
+                    <img src="https://fakeimg.pl/15x15/200">
+                </a>
+            </div>
+        </div>
+
+        <!-- lower -->
+        <div class="promotion">
+            <div class="disaccount">
+                <a href="#">
+                    <img src="./pic/left_Ads.png">
+                </a>
+            </div>
+            <ul class="store-list">
+                
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item1.jpg">
+                        <h3>LG</h3>
+                    </a>
+                    <p>下單滿額抽電視</p>
+                </li>
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item2.png">
+                        <h3>神腦生活</h3>
+                    </a>
+                    <p>最強3C領券再折</p>
+                </li>
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item3.png">
+                        <h3>屈臣氏</h3>
+                    </a>
+                    <p>滿$299折$50</p>
+                </li>
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item4.jpg">
+                        <h3>plain-me</h3>
+                    </a>
+                    <p>滿$1800折$180</p>
+                </li>
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item5.jpg">
+                        <h3>eslite誠品</h3>
+                    </a>
+                    <p>全館五折up</p>
+                </li>
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item6.png">
+                        <h3>國家地理</h3>
+                    </a>
+                    <p>國際書展領券85折</p>
+                </li>
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item7.jpg">
+                        <h3>植村秀</h3>
+                    </a>
+                    <p>盛大進駐關注領券</p>
+                </li>
+                <li class="store">
+                    <a href="#">
+                        <img src="./pic/item8.png">
+                        <h3>Google</h3>
+                    </a>
+                    <p>Pixel限時下殺</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+</body>
+</html>
