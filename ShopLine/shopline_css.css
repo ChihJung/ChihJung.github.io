@@ -73,24 +73,24 @@ h2,h3,h4,p,li{
     margin-top: 30px;
     color: #0061FF;
 }
-.wrap{
+.more-service{
     background-color: #F4F5F7;
 }
-.more{
+.wrap{
     width: 1150px;
     padding: 70px 25px;
     margin: auto;
 }
-.more h3{
+.wrap h3{
     font-size: 35px;
     font-weight: 900;
     text-align: center;
 }
-.more .service-list{
+.wrap .service-list{
     display: flex;
     flex-wrap: wrap;
 }
-.more .service-list .service{
+.wrap .service-list .service{
     width: 33.3%;
     padding: 20px;
     border: 20px solid transparent;
@@ -99,7 +99,7 @@ h2,h3,h4,p,li{
     flex-direction: column;
     align-items: center;
 }
-.more .service-list .service .icon{
+.wrap .service-list .service .icon{
     width: 120px;
     height: 120px;
     background-color: white;
@@ -108,15 +108,15 @@ h2,h3,h4,p,li{
     justify-content: center;
     align-items: center;
 }
-.more .service .icon img{
+.wrap .service .icon img{
     width: 71px;
 }
-.more .service h4{
+.wrap .service h4{
     font-size: 20px;
     margin-top: 10px;
     padding: 10px 0;
 }
-.more .service p{
+.wrap .service p{
     font-size: 15px;
     padding: 0 8px;
 }
