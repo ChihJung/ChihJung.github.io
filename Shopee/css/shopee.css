@@ -1,0 +1,95 @@
+body{
+    background-color: lightgrey;
+}
+.container{
+    width: 1200px;
+    margin: auto;
+    background-color: white;
+}
+.banner{
+    display: flex;
+    padding: 15px 10px;
+    border-bottom: 1px solid lightgrey;
+}
+.banner .ensurance ul{
+    display: flex;
+}
+.ensurance{
+    width: 50%;
+}
+.ensurance li a{
+    text-decoration: none;
+    color: red;
+    font-weight: 900;
+    font-size: 18px;
+    padding-right: 15px;
+    border-right: 1px solid lightgrey;
+}
+.ensurance li img{
+    width: 17px;
+    height: 17px;
+    margin: 0 5px 0 15px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+.ensurance li span{
+    font-size: 17px;
+}
+.more{
+    width: 50%;
+    text-align: right;
+}
+.more a{
+    text-decoration: none;
+    font-size: 0;
+    font-size: 17px;
+    color: red;
+    font-weight: 500;
+}
+.more a img{
+    width: 17px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+
+/* =================================== */
+.content{
+    display: flex;
+}
+.promote{
+    width: 380px;
+    margin: 10px;
+}
+.promote img{
+    width: 100%;
+}
+.store-list{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.store-list .store-item{
+    width: 180px;
+    height: 220px;
+    overflow: hidden;
+    margin: 10px 10px 5px;
+}
+.store-list .store-item img{
+    width: 100%;
+}
+.store-list .store-item h3{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.store-list .store-item p{
+    font-size: 17px;
+    color: red;
+    font-weight: 600;
+    display: inlin-block;
+    text-align: center;
+    position: relative;
+    bottom: 28px;
+}
