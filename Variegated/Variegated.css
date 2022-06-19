@@ -1,0 +1,472 @@
+a{
+    text-decoration: none;
+}
+h2,h3,p,a,li,span,input,button{
+    font-family: Roboto,sans-serif;
+}
+h2{
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    font-size: 24px;
+    color: #232222;
+    text-align: center;
+}
+.wrap{
+    width: 1200px;
+    margin: auto;
+}
+.top-bar{
+    padding: 15px 20px;
+    border-bottom: 1px solid lightgrey;
+}
+.top-bar .wrap{
+    display: flex;
+    justify-content: space-between;
+    font-family: Roboto,sans-serif;
+}
+.contact-info{
+    padding-left: 20px;
+}
+.contact-info .tel{
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid lightgrey;
+}
+.simple-service-group{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+.simple-service-group li{
+    margin: 0 10px;
+}
+
+/* ====================== */
+nav .wrap{
+    display: flex;
+    padding: 15px 0;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+.logo{
+    padding-left: 20px;
+}
+.logo h1{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+nav ul{
+    display: flex;
+}
+
+.menu li{
+    padding: 0 20px;
+}
+.menu li a{
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+}
+.menu li:nth-child(1) a{
+    color: #FFB4B4;
+}
+.media-icon-list{
+    padding-right: 20px;
+}
+.media-icon-list li i{
+    padding: 0 10px;
+    color: rgb(173,170,170);
+}
+
+/* ======================= */
+
+.banner{
+   
+   background-image: url(	https://ld-wp.template-help.com/monstroid1/prod-14924/wp-content/uploads/2018/02/bg_slider.jpg);
+   background-repeat: repeat-x;
+   background-size: cover;
+}
+.promote .wrap{
+    position: relative;
+}
+.promote .wrap .media img{
+    vertical-align: top;
+}
+.promote .text{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 150px;
+    left: 80px;
+}
+.promote .text span{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    width: 90px;
+    padding: 10px 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.promote .text h2{
+    font-size: 54px;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 70px;
+}
+.promote .text p{
+    color: #757578;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+.promote a, .promote a i{
+    font-size: 16px;
+    color: #1E1D24;
+    font-weight: 900;
+}
+
+.shopping-rules{
+    background-color: rgb(251,252,254);
+}
+.shopping-rules .wrap{
+    padding: 20px 0;
+}
+.rule-list{
+    display: flex;
+    align-items: center;
+}
+.rule-list li{
+    margin: 0 20px;
+    padding: 10px;
+    width: 380px;
+    text-align: center;
+    background-color: #FFB4B4;
+}
+.rule-list li h3{
+    font-size: 16px;
+    color: #232222;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.rule-list li p{
+    font-size: 14px;
+    color: #5D5D5D;
+}
+
+/* ============================ */
+
+.category{
+    padding: 50px;
+    background-image: url(	https://ld-wp.template-help.com/monstroid1/prod-14924/wp-content/uploads/2018/02/bg_cat.jpg);
+}
+.category .wrap h2{
+    margin: 20px 0;
+}
+.category .wrap ul{
+    display: flex;
+}
+.category .wrap ul li{
+    width: 300px;
+    margin: 20px;
+}
+.category .wrap li .pic img{
+    width: 100%;
+}
+.category ul li .text h3{
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #232222;
+}
+.category ul li .text h3::before{
+    content: '';
+    height: 1px;
+    width: 30px;
+    background-color: #1E1D24;
+}
+
+/* ====================== */
+.new-product{
+    padding: 50px;
+}
+.new-product .wrap{
+    display: flex;
+}
+.new-product .pic{
+    width: 560px;
+    margin: 20px;
+}
+.new-product .pic img{
+    vertical-align: top;
+}
+.new-product .wrap > .pic{
+    background-color: black;
+    position: relative;
+    z-index: 10;
+}
+.new-product .intro{
+    width: 440px;
+    margin: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.5;
+}
+.new-product .intro h2{
+    font-size: 42px;
+    display: inline-block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+.new-product .intro p{
+    margin-bottom: 30px;
+}
+.new-product .intro a{
+    background-color: #1E1D24;
+    color: white;
+    padding:10px 20px;
+    width: 90px;
+}
+
+
+
+/* ========================= */
+.clothes-display{
+    padding: 50px;
+}
+.display-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.display-list .display-item{
+    width: 260px;
+    margin: 20px;
+    
+}
+.display-list .content ul{
+    display: flex;
+    overflow: hidden;
+}
+.display-list .content li{
+    white-space: nowrap;
+    display:inline-block;
+}
+.display-list .content li{
+    width: fit-content;
+    margin-right: 10px;
+}
+.display-list .content li a{
+    font-size: 12px;
+    color:#ADAAAA;
+}
+.display-list li .content h3{
+    font-size: 16px;
+}
+.display-list li .content p{
+    font-size: 16px;
+    font-weight: 800;
+}
+.display-list .pic img{
+    width: 100%;
+}
+.display-list .pic{
+    position: relative;
+}
+.display-list li .tag{
+    background-color: #fa0;
+    color: white;
+    padding: 5px 10px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    z-index: 1000;
+}
+/* ============================= */
+.essentials{
+    padding: 50px;
+    background-image: url(https://ld-wp.template-help.com/monstroid1/prod-14924/wp-content/uploads/2018/02/banner4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.essentials .wrap{
+    text-align: center;
+    padding: 200px 0;
+}
+.essentials .wrap span{
+    color: white;
+    font-size: 16px;
+    letter-spacing: 0.5em;
+}
+.essentials .wrap h2{
+    color: white;
+    font-size: 60px;
+    margin: 80px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+}
+.essentials .wrap a{
+    font-size: 12px;
+    padding: 15px 10px;
+    background-color: #1E1D24;
+    color: white;
+    display: inline-block;
+    width: 100px;
+}
+/* ====================== */
+.recommend{
+    padding: 50px;
+}
+.recommend h2{
+    margin: 20px 0;
+}
+.recommend .blog-list{
+    display: flex;
+}
+.blog-list li{
+    width: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    margin: 20px;
+}
+.blog-list li img{
+    width: 100%;
+}
+.blog-list li .content{
+    position: relative;
+}
+.blog-list .text{
+    background-color: #F6F6F6;
+    width: 460px;
+    padding: 20px;
+    position: absolute;
+    left: 60px;
+    bottom: -100px;
+}
+.blog-list .text h3{
+    color:#232222;
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+.blog-list .text p{
+    font-size: 16px;
+    color: #717171;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.blog-list .text span, .blog-list .text span a{
+    color: #B2B2B2;
+}
+
+/* ======================= */
+.subscribe{
+    padding: 120px 50px 50px;
+}
+
+.subscribe .content{
+    background-color: #FFECE5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin: 0 20px;
+    padding: 15px 30px;
+}
+.subscribe .text{
+    width: 50%;
+    margin-right: 10px;
+}
+.subscribe .text h2{
+    font-size: 24px;
+}
+.subscribe .input-box{
+    width: 50%;
+}
+.subscribe .input-box{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    text-align: center;
+}
+.subscribe .input-box input{
+    width: 60%;
+    padding: 13px 20px;
+    border: none;
+    font-size: 14px;
+}
+.subscribe .input-box button{
+    width: 30%;
+    padding: 13px 20px;
+    border: none;
+    color: white;
+    background-color: #1E1D24;
+}
+/* ================ */
+.media-page{
+    padding-top: 65px;
+}
+.media-page h2{
+    margin-bottom: 30px;
+}
+
+.media-page .content span{
+    font-size: 16px;
+    display: inline-block;
+    padding:0 0 10px 10px;
+}
+
+/* =================== */
+footer{
+    background-color: black;
+    padding: 20px 0;
+}
+footer .all-service{
+    padding: 0 20px 30px 20px;
+    border-bottom: 1px solid lightgrey;
+}
+footer .service-list{
+    display: flex;
+}
+footer .service-list .service-item{
+    width: 25%;
+    display: flex;
+    color: #949494;
+    flex-direction: column;
+}
+footer .service-item span{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+}
+footer .service-item a{
+    color: #949494;
+    margin: 5px 0;
+    font-size: 14px;
+}
+footer .service-item p{
+    font-size: 14px;
+    line-height: 2;
+}
+.copyright .wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0;
+    
+}
+.copyright .text p{
+    color: #949494;
+}
+footer .copyright ul{
+    display: flex;
+}
+footer .media-icon-list i{
+    color: white;
+}
