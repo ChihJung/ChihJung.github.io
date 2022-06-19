@@ -11,13 +11,17 @@ h2{
     color: #232222;
     text-align: center;
 }
+input{
+    outline: none;
+}
 .wrap{
     width: 1200px;
     margin: auto;
 }
+
 .top-bar{
-    padding: 15px 20px;
-    border-bottom: 1px solid lightgrey;
+    padding: 0px 20px;
+    border-bottom: 1px solid rgb(246,246,246);
 }
 .top-bar .wrap{
     display: flex;
@@ -25,23 +29,58 @@ h2{
     font-family: Roboto,sans-serif;
 }
 .contact-info{
-    padding-left: 20px;
+    padding: 15px 0 10px 20px;
+    color: #5D5D5D;
 }
 .contact-info .tel{
     padding-right: 10px;
     margin-right: 10px;
-    border-right: 1px solid lightgrey;
+    border-right: 1px solid ;
+}
+.contact-info .tel a{
+    transition: color 0.5s;
+}
+.contact-info .tel a:hover{
+    font-weight: 600;
+    color: #FFB4B4;
 }
 .simple-service-group{
     display: flex;
     justify-content: space-between;
-    padding-right: 20px;
 }
 .simple-service-group li{
-    margin: 0 10px;
+    padding: 15px 25px 10px;
+    border-right:1px solid rgb(246,246,246);
+    border-bottom: 3px solid transparent;
+}
+.simple-service-group li:not([class="search"]):hover{
+    border-bottom: 3px solid #FFB4B4;
+}
+select{
+    border: none;
+    outline: none;
+}
+select option{
+    font-family: Roboto,sans-serif;
+    color: #5D5D5D;
+    font-size: 16px;
+}
+.search input{
+    border: none;
+    color: #5D5D5D;
+}
+::placeholder{
+    font-family: Roboto,sans-serif;
+    color: #5D5D5D;
+    font-size: 16px;
+}
+.media-icon-list li i:hover{
+    color: #1E1D24;
+}
+.search a i:hover{
+    color: #FFB4B4;
 }
 
-/* ====================== */
 nav .wrap{
     display: flex;
     padding: 15px 0;
@@ -72,6 +111,9 @@ nav ul{
 .menu li:nth-child(1) a{
     color: #FFB4B4;
 }
+.menu li a:hover{
+    color: #FFB4B4;
+}
 .media-icon-list{
     padding-right: 20px;
 }
@@ -79,8 +121,6 @@ nav ul{
     padding: 0 10px;
     color: rgb(173,170,170);
 }
-
-/* ======================= */
 
 .banner{
    
@@ -93,6 +133,8 @@ nav ul{
 }
 .promote .wrap .media img{
     vertical-align: top;
+    position: relative;
+    left: 20px;
 }
 .promote .text{
     display: flex;
@@ -142,7 +184,15 @@ nav ul{
     padding: 10px;
     width: 380px;
     text-align: center;
+}
+.rule-list > :nth-child(1){
     background-color: #FFB4B4;
+}
+.rule-list > :nth-child(2){
+    background-color: #FFECE5;
+}
+.rule-list > :nth-child(3){
+    background-color: #FFF5E5;
 }
 .rule-list li h3{
     font-size: 16px;
@@ -154,8 +204,6 @@ nav ul{
     font-size: 14px;
     color: #5D5D5D;
 }
-
-/* ============================ */
 
 .category{
     padding: 50px;
@@ -174,37 +222,56 @@ nav ul{
 .category .wrap li .pic img{
     width: 100%;
 }
+.category ul li .text{
+    display: inline-block;
+    width: max-content;
+}
 .category ul li .text h3{
     margin: 20px 0;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     color: #232222;
 }
+.category .text h3:hover{
+    color: #FFB4B4;
+}
 .category ul li .text h3::before{
-    content: '';
-    height: 1px;
+    content: "";
+    display:inline-block;
+    border: 1px solid #232222;
+    border-radius: 50px;
     width: 30px;
-    background-color: #1E1D24;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+.category .text h3::before:hover{
+    color: #FFB4B4;
+    cursor: grab;
 }
 
-/* ====================== */
 .new-product{
-    padding: 50px;
+    padding: 110px 50px 50px;
 }
 .new-product .wrap{
     display: flex;
+    position: relative;
 }
 .new-product .pic{
     width: 560px;
     margin: 20px;
+    position: relative;
 }
 .new-product .pic img{
     vertical-align: top;
 }
-.new-product .wrap > .pic{
-    background-color: black;
-    position: relative;
-    z-index: 10;
+.back-img{
+    position: absolute;
+    z-index: -2;
+    width: 560px;
+    height: 461px;
+    background-color: rgb(246,246,246);
+    top: -60px;
+    right: -60px;
 }
 .new-product .intro{
     width: 440px;
@@ -232,9 +299,6 @@ nav ul{
     width: 90px;
 }
 
-
-
-/* ========================= */
 .clothes-display{
     padding: 50px;
 }
@@ -245,7 +309,6 @@ nav ul{
 .display-list .display-item{
     width: 260px;
     margin: 20px;
-    
 }
 .display-list .content ul{
     display: flex;
@@ -272,10 +335,26 @@ nav ul{
 }
 .display-list .pic img{
     width: 100%;
+    vertical-align: top;
 }
 .display-list .pic{
     position: relative;
 }
+.display-item .pic .cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0005;
+    opacity: 0;
+    transition: 0.5s;
+}
+.display-item .pic:hover .cover{
+    opacity: 1;
+    z-index: 2;
+}
+
 .display-list li .tag{
     background-color: #fa0;
     color: white;
@@ -285,14 +364,13 @@ nav ul{
     top: 15px;
     z-index: 1000;
 }
-/* ============================= */
+
 .essentials{
     padding: 50px;
     background-image: url(https://ld-wp.template-help.com/monstroid1/prod-14924/wp-content/uploads/2018/02/banner4.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 .essentials .wrap{
     text-align: center;
     padding: 200px 0;
@@ -316,10 +394,15 @@ nav ul{
     color: white;
     display: inline-block;
     width: 100px;
+    transition: background-color 0.8s;
 }
-/* ====================== */
+.essentials .wrap a:hover{
+    background-color: #FFB4B4;
+}
+
 .recommend{
     padding: 50px;
+    height: 560px;
 }
 .recommend h2{
     margin: 20px 0;
@@ -365,11 +448,9 @@ nav ul{
     color: #B2B2B2;
 }
 
-/* ======================= */
 .subscribe{
-    padding: 120px 50px 50px;
+    padding: 50px 50px 50px;
 }
-
 .subscribe .content{
     background-color: #FFECE5;
     display: flex;
@@ -387,55 +468,58 @@ nav ul{
     font-size: 24px;
 }
 .subscribe .input-box{
-    width: 50%;
-}
-.subscribe .input-box{
     display: flex;
-    justify-content: space-between;
+    width: 50%;
     margin-left: 10px;
     text-align: center;
 }
-.subscribe .input-box input{
-    width: 60%;
+input[type="email"]{
+    width: 66%;
     padding: 13px 20px;
+    margin-right: 20px;
     border: none;
     font-size: 14px;
 }
-.subscribe .input-box button{
-    width: 30%;
-    padding: 13px 20px;
+input[type="button"]{
+    width: 33%;
+    padding:0 20px;
     border: none;
     color: white;
     background-color: #1E1D24;
+    transition: background-color 0.8s;
 }
-/* ================ */
+input[type="button"]:hover{
+    cursor: pointer;
+    background-color: #FFB4B4;
+}
+
 .media-page{
     padding-top: 65px;
 }
 .media-page h2{
     margin-bottom: 30px;
 }
-
 .media-page .content span{
     font-size: 16px;
     display: inline-block;
     padding:0 0 10px 10px;
 }
 
-/* =================== */
 footer{
+    width: 100%;
     background-color: black;
-    padding: 20px 0;
 }
 footer .all-service{
-    padding: 0 20px 30px 20px;
-    border-bottom: 1px solid lightgrey;
+    padding: 20px 20px 30px 20px;
+    border-bottom: 1px solid rgb(32,31,39);
 }
 footer .service-list{
     display: flex;
 }
 footer .service-list .service-item{
     width: 25%;
+    box-sizing: border-box;
+    margin: 0 20px;
     display: flex;
     color: #949494;
     flex-direction: column;
@@ -451,6 +535,9 @@ footer .service-item a{
     margin: 5px 0;
     font-size: 14px;
 }
+.service-item a:hover{
+    color: #FFB4B4;
+}
 footer .service-item p{
     font-size: 14px;
     line-height: 2;
@@ -458,15 +545,22 @@ footer .service-item p{
 .copyright .wrap{
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px 0;
-    
+    align-items: center;
+    padding: 20px 0;
+}
+.copyright .text{
+    margin-left: 20px;
 }
 .copyright .text p{
     color: #949494;
 }
 footer .copyright ul{
     display: flex;
+    margin-right: -10px;
 }
 footer .media-icon-list i{
     color: white;
+}
+footer .media-icon-list i:hover{
+    color: #FFB4B4;
 }

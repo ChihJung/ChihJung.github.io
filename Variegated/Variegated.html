@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="./Variegated.css">
 </head>
 <body>
+    
     <article>
-        
         <header>
             <div class="top-bar">
                 <div class="wrap">
@@ -24,9 +24,9 @@
                     <ul class="simple-service-group">
                         <li>
                             <form>
-                                <select for="">
-                                    <option value="">USD, $</option>
-                                    <option value="">EUR, €</option>
+                                <select>
+                                    <option value="currency">USD, $</option>
+                                    <option value="currency">EUR, €</option>
                                 </select>
                             </form>
                         </li>
@@ -39,10 +39,12 @@
                         <li>
                             <a href="#">Login</a>
                         </li>
-                        <li>
+                        <li class="search">
                             <form>
-                                <input type="search" placeholder="search...">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="search" placeholder="Search...">
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </form>
                         </li>
                     </ul>
@@ -98,8 +100,6 @@
             </nav>
         </header>
 
-<!-- ======================================== -->
-
         <div class="page-content">
             <section class="banner">  
                 <div class="promote">
@@ -143,20 +143,9 @@
                     </div>
                 </div>
             </section>
-            
-
-            <!-- ================ -->
             <section class="category">
                 <div class="wrap">    
                     <h2>SHOP CATEGORIES</h2>
-                    <!-- <div class="switch-btn">
-                        <button>
-                            <i class="fa-solid fa-angle-left"></i>
-                        </button>
-                        <button>
-                            <i class="fa-solid fa-angle-right"></i>
-                        </button>
-                    </div> -->
                     <ul>
                         <li>
                             <a href="#" class="pic">
@@ -191,15 +180,12 @@
                             </a>
                         </li>
                     </ul>
-                </section>
-            </div>
-            
-
-             <!-- ================ -->
-
+                </div>
+            </section>
             <section class="new-product">
                <div class="wrap">
                     <div class="pic">
+                        <div class="back-img"></div>
                         <img src="./pic/Favorite_Blouses.jpg">
                     </div>
                     <div class="intro">
@@ -209,9 +195,6 @@
                     </div>
                </div>
             </section>
-
-             <!-- ================ -->
-
             <section class="clothes-display">
                 <div class="wrap">
                     <h2>MOST RECENT POPULAR MODELS</h2>
@@ -220,6 +203,7 @@
                             <div class="pic">
                                 <a href="#">
                                     <img src="./pic/Buttoned-shirt.jpg">
+                                    <div class="cover"></div>
                                 </a>
                             </div>
                             <div class="content">
@@ -237,6 +221,7 @@
                                 <a href="#">
                                     <img src="./pic/Checked-tunic.jpg">
                                     <div class="tag">Featured</div>
+                                    <div class="cover"></div>
                                 </a>
                             </div>
                             <div class="content">
@@ -254,6 +239,7 @@
                                 <a href="#">
                                     <img src="./pic/Embroidered-shirt.jpg">
                                     <div class="tag">Featured</div>
+                                    <div class="cover"></div>
                                 </a>
                             </div>
                             <div class="content">
@@ -272,6 +258,7 @@
                             <div class="pic">
                                 <a href="#">
                                     <img src="./pic/Faux-leather-jacket-with-flowing-lapels.jpg">
+                                    <div class="cover"></div>    
                                 </a>
                             </div>
                             <div class="content">
@@ -289,6 +276,7 @@
                                 <a href="#">
                                     <img src="./pic/Lightweight-puffer-jacket.jpg">
                                     <div class="tag">Featured</div>
+                                    <div class="cover"></div>
                                 </a>
                             </div>
                             <div class="content">
@@ -305,6 +293,7 @@
                             <div class="pic">
                                 <a href="#">
                                     <img src="./pic/Polka-dot-shirt-dress.jpg">
+                                    <div class="cover"></div>
                                 </a>
                             </div>
                             <div class="content">
@@ -320,6 +309,7 @@
                             <div class="pic">
                                 <a href="#">
                                     <img src="./pic/Ripped-denim-jacket.jpg">
+                                    <div class="cover"></div>
                                 </a>
                             </div>
                             <div class="content">
@@ -337,6 +327,7 @@
                                 <a href="#">
                                     <img src="./pic/Suede-effect-dress.jpg">
                                     <div class="tag">Featured</div>
+                                    <div class="cover"></div>
                                 </a>
                             </div>
                             <div class="content">
@@ -352,10 +343,6 @@
                     </ul>
                 </div>
             </section>
-                
-
-             <!-- ================ -->
-
             <section class="essentials">
                 <div class="wrap">
                     <span>DEALY DEALS</span>
@@ -363,9 +350,6 @@
                     <a href="#">SHOP NOW</a>
                 </div>
             </section>
-
-             <!-- ================ -->
-
             <section class="recommend">
                 <div class="wrap">
                     <h2>LATEST FROM BLOG</h2>
@@ -409,35 +393,26 @@
                     </ul>
                 </div>
             </section>
-
-             <!-- ================ -->
-
             <section class="subscribe">
                 <div class="wrap">
                     <div class="content">
                         <div class="text">
                             <h2>GET THE LATEST NEWS DELIVERED DAILY</h2>
                         </div>
-                        <div class="input-box">
+                        <form class="input-box">
                             <input type="email" placeholder="Please enter your email">
-                            <button>SUBSCRIBE</button>
-                        </div>
+                            <input type="button" value="SUBSCRIBE"></input>
+                        </form>
                     </div>
                 </div>
             </section>
-
-            <!-- =================== -->
-
             <section class="media-page">
                 <h2>@INSTAGRAM</h2>
                 <div class="content">
                     <span>Posts not found</span>
                 </div>
             </section>
-        </div>    
-        
-<!-- ======================================== -->
-
+        </div>
 
         <footer>
             <div class="all-service">
@@ -479,23 +454,31 @@
                     <div class="media-icon-list">
                         <ul>
                             <li>
-                                <i class="fa-brands fa-facebook-f"></i>
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
                             </li>
                             <li>
-                                <i class="fa-brands fa-instagram"></i>
+                                <a href="#">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
                             </li>
                             <li>
-                                <i class="fa-brands fa-google"></i>
+                                <a href="#">
+                                    <i class="fa-brands fa-google"></i>
+                                </a> 
                             </li>
                             <li>
-                                <i class="fa-brands fa-twitter"></i>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
-
     </article>
+
 </body>
 </html>
