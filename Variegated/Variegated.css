@@ -221,6 +221,9 @@ nav ul{
 .category .wrap ul li{
     width: 300px;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .category .wrap li .pic img{
     width: 100%;
@@ -234,21 +237,36 @@ nav ul{
     font-size: 16px;
     font-weight: 600;
     color: #232222;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 40px;
 }
 .category .text h3:hover{
     color: #FFB4B4;
 }
+.category .text{
+    position: relative;
+}
 .category ul li .text h3::before{
     content: "";
-    display:inline-block;
+    /* color: white; */
+    /* display:inline-block;
     border: 1px solid #232222;
     border-radius: 50px;
     width: 30px;
     vertical-align: middle;
-    margin: 0 10px;
+    margin: 0 10px; */
+    width: 30px;
+    height: 1px;
+    background-color: black;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+    position: absolute;
+    top: 50%;
+    left: 0;
 }
-.category .text h3::before:hover{
-    color: #FFB4B4;
+.category .text h3:hover::before{
+    background-color: #FFB4B4;
     cursor: grab;
 }
 
