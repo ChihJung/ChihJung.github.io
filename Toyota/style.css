@@ -1,5 +1,5 @@
 section{
-    padding-bottom:20px;
+    padding-bottom:50px;
 }
 h1{
     width: 1px;
@@ -65,7 +65,7 @@ h1{
 /* ======================================= */
 .renew-part{
     box-sizing: border-box;
-    background-color: lightgrey;
+    background-color: #eeeeee;
     padding: 10px 10px 0 10px;
 }
 .renew-part h3{
@@ -129,14 +129,12 @@ h1{
     .row-reverse{
         display: flex;
         position: relative;
-        /* left: 8%; */
     }
     .main-feat{
         width: 35%;
         z-index: 2;
     }
     .car-demo{
-        /* width: 100%; */
         left:  -15%;
         margin-top: 110px;
     }
@@ -145,12 +143,9 @@ h1{
         position: relative;
         margin-top: -40px;
         margin-left: 60px;
-        /* z-index: 3000; */
     }
     .car-demo .car-pic img{
         width: 125%;
-        /* background-color:red; */
-        /* box-shadow: 40px -40px; */
     }
     .car-demo .player-icon img{
         transform: translate(570%, -50%);
@@ -160,6 +155,7 @@ h1{
         width: 70%;
         height: 60%;
         background-color: #eeeeee;
+        opacity: 0.6;
         position: absolute;
         right: -37%;
         top: -20%;
@@ -182,5 +178,8 @@ h1{
         width: 125%;
         position: relative;
         left: 20%;
+    }
+    .feature:nth-child(odd) .renew-part{
+        margin-left: 320px;
     }
 }
