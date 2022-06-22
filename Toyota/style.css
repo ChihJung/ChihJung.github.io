@@ -1,33 +1,40 @@
-/* section{
-    padding: 10px;
-} */
+section{
+    padding-bottom:20px;
+}
 h1{
     width: 1px;
     height: 1px;
     overflow: hidden;
 }
-.feature{
-    margin: auto;
-}
 .main-feat{
     display: flex;
     flex-direction: column;
-    
 }
 .advantage{
     display: flex;
     padding: 15px;
+    background-color: rgb(187,4,4);
+    align-items: center;
+}
+.advantage h2{
+    font-size: 40px;
+    line-height: 2;
 }
 .advantage span{
     order: -1;
-}
-.advantage{
     font-size: 60px;
-    background-color: rgb(187,4,4);
+    margin-right: 3px;
 }
 .content{
     background-color: black;
-    padding: 15px;
+    padding: 20px;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+.content p{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
 }
 .advantage h2,
 .advantage span,
@@ -39,39 +46,141 @@ h1{
     margin-bottom: 10px;
 }
 /* ======================================= */
-
-.car-demo a img{
-    vertical-align: middle;
+.car-demo{
+    position: relative;
 }
-.car-demo img.car-pic{
+.car-demo a img{
+    vertical-align: top;
+}
+.car-demo .car-pic img{
     width: 100%;
 }
-.car-demo .player-icon{
-    width: 10%;
+.car-demo .player-icon img{
+    width: 12%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 /* ======================================= */
 .renew-part{
-    background-color: rgb(248, 248, 248);
-    padding: 10px;
-    /* background-color: lightgreen; */
-
+    box-sizing: border-box;
+    background-color: lightgrey;
+    padding: 10px 10px 0 10px;
 }
 .renew-part h3{
     color: rgb(187,4,4);
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5;
+    display:flex;
+    align-items: center;
+}
+.renew-part h3::after{
+    content:"";
+    height: 1.5px;
+    flex-grow: 1;
+    background-color: rgb(187,4,4);
+    margin-left: 8px;
 }
 .renew-list{
     display: flex;
     flex-direction: column;
+}
+.renew-item{
+    box-sizing: border-box;
+    position: relative;
 }
 .renew-list .renew-item h4{
     background-color: black;
     color: white;
     text-align: center;
     display: inline-block;
-    padding: 10px;
+    padding: 3px 8px;
+    font-size: 17px;
+    letter-spacing: 0.5;
 }
-
 .renew-part .renew-item p{
     color: rgb(132,132,132);
-    padding: 10px 10px 10px 1.5em;
+    margin: 10px 10px 10px 1.5em;
+    font-size: 14px;
+    letter-spacing: 0.5;
+    line-height: 1.5;
+}
+.renew-part .renew-item p::before{
+    content: "";
+    height: 3px;
+    width: 3px;
+    background-color: rgb(187,4,4);
+    position: absolute;
+    left: 13px;
+    top: 42px;
+}
+
+/* ================ */
+@media screen and (min-width:768px){
+    section{
+        max-width: 960px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .row-reverse{
+        display: flex;
+        position: relative;
+        /* left: 8%; */
+    }
+    .main-feat{
+        width: 35%;
+        z-index: 2;
+    }
+    .car-demo{
+        /* width: 100%; */
+        left:  -15%;
+        margin-top: 110px;
+    }
+    .renew-part{
+        width: calc(100% * 2 / 3);
+        position: relative;
+        margin-top: -40px;
+        margin-left: 60px;
+        /* z-index: 3000; */
+    }
+    .car-demo .car-pic img{
+        width: 125%;
+        /* background-color:red; */
+        /* box-shadow: 40px -40px; */
+    }
+    .car-demo .player-icon img{
+        transform: translate(570%, -50%);
+    }
+    .car-demo .car-back{
+        display: inline-block;
+        width: 70%;
+        height: 60%;
+        background-color: #eeeeee;
+        position: absolute;
+        right: -37%;
+        top: -20%;
+        z-index: -80;
+    }
+    .feature:nth-child(odd) .row-reverse{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .feature:nth-child(odd) .car-demo .player-icon img{
+        transform: translate(-294%, -50%);
+    }
+    .feature:nth-child(odd) .car-demo .car-back{
+        width: 90%;
+        height: 80%;
+        right: -55%;
+        top: -15%;
+    }
+    .feature:nth-child(odd) .car-demo .car-pic img{
+        width: 125%;
+        position: relative;
+        left: 20%;
+    }
 }
