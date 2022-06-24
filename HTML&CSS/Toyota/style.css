@@ -134,7 +134,7 @@ h1{
         width: 35%;
         z-index: 2;
     }
-    .car-demo{
+    .car-demo{ 
         left:  -15%;
         margin-top: 110px;
     }
@@ -161,25 +161,25 @@ h1{
         top: -20%;
         z-index: -80;
     }
-    .feature:nth-child(odd) .row-reverse{
+    .feature:nth-of-type(even) .row-reverse{
         display: flex;
         flex-direction: row-reverse;
     }
-    .feature:nth-child(odd) .car-demo .player-icon img{
+    .feature:nth-of-type(even) .car-demo .player-icon img{
         transform: translate(-294%, -50%);
     }
-    .feature:nth-child(odd) .car-demo .car-back{
+    .feature:nth-of-type(even) .car-demo .car-back{
         width: 90%;
         height: 80%;
         right: -55%;
         top: -15%;
     }
-    .feature:nth-child(odd) .car-demo .car-pic img{
+    .feature:nth-of-type(even) .car-demo .car-pic img{
         width: 125%;
         position: relative;
         left: 20%;
     }
-    .feature:nth-child(odd) .renew-part{
+    .feature:nth-of-type(even) .renew-part{
         margin-left: 320px;
     }
 }
