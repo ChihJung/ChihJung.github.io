@@ -15,11 +15,16 @@
         }
         .selfie img{
             width: 100%;
+            vertical-align: top;
         }
         .info{
             color: #f9eed3;
             line-height: 1.5;
-            font-family: Arial, Helvetica, sans-serif;
+            width: 210px;
+            padding: 10px 195px;
+            background-color: #775845;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .life-pic{
             display: flex;
@@ -28,12 +33,13 @@
             vertical-align: middle;
             width: 200px;
             height: 100%;
-            overflow: hidden;
             box-sizing: border-box;
+            position: relative;
         }
         .life-pic :first-child{
             align-self: flex-end;
         }
+
     </style>
 </head>
 <body>
@@ -64,10 +70,10 @@
             "https://ago.ca/sites/default/files/styles/image_medium/public/2020-09/NB2021_AGO_1200x1200.jpg?itok=mcVqapL7",
             "https://i.pinimg.com/550x/06/c1/72/06c1729a205588cabcc2d24700cdc442.jpg"
         ]
-        let name = "Chih";
-        let email = "melody945@gmail.com";
-        let school = "Build School";
-        let habbits = "芭蕾 瑜珈";
+        let name = "BABLE";
+        let email = "bagle945@gmail.com";
+        let school = "Shiba School";
+        let habbits = "芭蕾 瑜珈 爬山";
         let selfie = document.querySelector(".selfie img");
         let lifePic = document.querySelectorAll(".life-pic img");
         selfie.setAttribute("src", selfieUrl);
