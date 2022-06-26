@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .container{
+            width: 600px;
+            margin: auto;
+            background-color: #a47c64;
+            padding: 15px;
+        }
+        .selfie img{
+            width: 100%;
+        }
+        .info{
+            color: #f9eed3;
+            line-height: 1.5;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .life-pic{
+            display: flex;
+        }
+        .life-pic img{
+            vertical-align: middle;
+            width: 200px;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .life-pic :first-child{
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="selfie">
+            <img src="" alt="">
+        </div>
+        <div class="info">
+            <ul>
+                <li>姓名：</li>
+                <li>信箱：</li>
+                <li>學校：</li>
+                <li>興趣：</li>
+            </ul>
+        </div>
+        <div class="life-pic">
+            <img src="" alt="">
+            <img src="" alt="" style="padding: 0 10px; align-self: center;">
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        
+        const selfieUrl = "http://japan.people.com.cn/NMediaFile/2021/0408/MAIN202104081417000408556776331.jpg";
+        const imgArr=[
+            "https://images.unsplash.com/photo-1555489400-d802b08e0982?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmFsbGV0JTIwc2xpcHBlcnN8ZW58MHx8MHx8&w=1000&q=80",
+            "https://ago.ca/sites/default/files/styles/image_medium/public/2020-09/NB2021_AGO_1200x1200.jpg?itok=mcVqapL7",
+            "https://i.pinimg.com/550x/06/c1/72/06c1729a205588cabcc2d24700cdc442.jpg"
+        ]
+        let name = "Chih";
+        let email = "melody945@gmail.com";
+        let school = "Build School";
+        let habbits = "芭蕾 瑜珈";
+        let selfie = document.querySelector(".selfie img");
+        let lifePic = document.querySelectorAll(".life-pic img");
+        selfie.setAttribute("src", selfieUrl);
+        imgArr.forEach((url,index) => {
+            lifePic[index].src = url;
+        });
+        document.querySelector("li:first-child").innerText += name;
+        document.querySelector("li:nth-child(2)").innerText += email;
+        document.querySelector("li:nth-child(3)").innerText += school;
+        document.querySelector("li:last-child").innerText += habbits;
+    </script>
+</body>
+</html>
