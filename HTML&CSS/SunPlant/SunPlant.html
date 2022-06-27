@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunplant - MultiPurpose Plant Store Responsive Shopify Theme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f339f30122.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
@@ -12,31 +15,74 @@
 <body>
     <header>
         <nav class="main-nav">
+            <!-- icon-桌機消失 -->
+            <div class="icon">
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    MENU
+                </div>
+                <a href="#">
+                    <i class="fa-regular fa-circle-user"></i>
+                    <span>LOGIN</span>
+                </a>
+            </div>
 
+            <!-- ul都保留 -->
+            <ul>
+                <li>
+                    <a href="#">HOME</a>
+                </li>
+                <li>
+                    <a href="#">SHOP</a>
+                </li>
+                <li>
+                    <a href="#">FEATURED</a>
+                </li>
+                <li>
+                    <a href="#">PAGES</a>
+                </li>
+                <li>
+                    <a href="#">ELEMENT</a>
+                </li>
+            </ul>
+
+            <!-- close桌機消失 -->
+            <div class="close">
+                <i class="fa-solid fa-xmark"></i>
+                <span>CLOSE</span>
+            </div>
         </nav>
+
         <div class="logo">
             <a href="#">
                 <img src="./pic/logo.webp" alt="SunPlant">
             </a>
         </div>
+
+        <!-- 桌機3 -->
+        <!-- 平板,手機2 -->
         <ul class="fn-icon">
             <li>
                 <a href="#">
-                    <i class="fa-thin fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa-thin fa-circle-user"></i>
+                    <i class="fa-regular fa-circle-user"></i>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa-thin fa-basket-shopping"></i>
+                    <i class="fa-solid fa-basket-shopping"></i>
                 </a>
             </li>
         </ul>
     </header>
+
+
     <main>
         <h1>SunPlant</h1>
         <div class="banner">
@@ -92,14 +138,18 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
-                            <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
-                            </li>
+                            <a href="#">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
                         </ul>
                     </div>
                     <div class="text">
@@ -117,13 +167,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -131,6 +187,8 @@
                         <a href="#">
                             <h3>Fringilla Augue 360</h3>
                         </a>
+                        <span class="org">$200.00</span>
+                        <span>$150.00</span>
                     </div>
                 </li>
                 <li class="plant-list-item sale">
@@ -141,13 +199,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -155,7 +219,7 @@
                         <a href="#">
                             <h3>Faded Short Sleeves Variable</h3>
                         </a>
-                        <span>$200.00</span>
+                        <span class="org">$200.00</span>
                         <span>$150.00</span>
                     </div>
                 </li>
@@ -167,13 +231,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -192,13 +262,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -217,13 +293,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -242,13 +324,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -256,7 +344,7 @@
                         <a href="#">
                             <h3>Purple Flowers</h3>
                         </a>
-                        <span>$200.00</span>
+                        <span class="org">$200.00</span>
                         <span>$150.00</span>
                     </div>
                 </li>
@@ -268,13 +356,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -282,7 +376,7 @@
                         <a href="#">
                             <h3>Plant</h3>
                         </a>
-                        <span>$200.00</span>
+                        <span class="org">$200.00</span>
                         <span>$150.00</span>
                     </div>
                 </li>
@@ -294,13 +388,19 @@
                         </a>
                         <ul class="fn-list">
                             <li class="fn-icon">
-                                <i class="fa-thin fa-heart"></i>
+                                <a href="#">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-cart-shopping"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
                             </li>
                             <li class="fn-icon">
-                                <i class="fa-thin fa-magnifying-glass"></i>
+                                <a href="#">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -313,20 +413,20 @@
                 </li>
             </ul>
         </section>
-        <section>
+        <section class="product-media">
             <h2>A Number Of Our Products</h2>
             <p>Pick up all you need to keep your board in optimum condition with Decathlon’s set of surfboard accessories.</p>
             <div>SHOP NOW</div>
             <div class="media">
                 <a href="#">
                     <img src="./pic/video-pic.webp" alt="video">
-                    <i class="fa-thin fa-circle-play"></i>
+                    <i class="fa-regular fa-circle-play"></i>
                 </a>
             </div>
         </section>
-        <section>
+        <section class="insta-shop">
             <h2>SHOP INSTAGRAM</h2>
-            <img src="./" alt="">
+            <img src="" alt="">
             <ul class="album-list">
                 <li class="album-item">
                     <a href="#">
@@ -370,7 +470,7 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="fa-regular fa-basketball"></i>
+                    <i class="fa-solid fa-basketball"></i>
                 </a>
             </li>
             <li>

@@ -1,0 +1,65 @@
+section h2 {
+  font-family: "Poppins", sans-serif;
+  color: #518432;
+  font-weight: 600;
+}
+
+.benefit .benefit-item p, .intro p {
+  color: #949494;
+  font-family: "Poppins", sans-serif;
+}
+
+.plant-list-item .text span, .plant-list-item .text span.org, .plant-list-item .text h3, .benefit .benefit-item h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+h1 {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+section h2 {
+  font-size: 25px;
+}
+
+.intro h2 {
+  font-size: 30px;
+}
+
+.intro p {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.benefit .benefit-item h3 {
+  font-size: 23px;
+}
+
+.benefit .benefit-item p {
+  font-size: 15px;
+}
+
+.plant-list-item .text span.org {
+  font-size: 12px;
+}
+
+.plant-list-item .text span {
+  font-size: 17px;
+}
+
+.product-media p {
+  color: #212529;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.insta-shop h2 {
+  color: #333;
+  font-size: 22px;
+  letter-spacing: 2px;
+}/*# sourceMappingURL=style.css.map */

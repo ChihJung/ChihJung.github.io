@@ -1,0 +1,66 @@
+// font-family: 'Poppins', sans-serif;
+$main-font: 'Poppins', sans-serif;
+$main-color: #518432;
+%headSize{
+    font-family: $main-font;
+    color: #518432;
+    font-weight: 600;
+}
+%descrip{
+    color: #949494;
+    font-family: $main-font;
+}
+%h3Font{
+    font-family: $main-font;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+h1{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+section h2{
+    @extend %headSize;
+    font-size: 25px;
+}
+.intro h2{
+    font-size: 30px;
+}
+.intro p{
+    @extend %descrip;
+    font-size: 14px;
+    font-style: italic;
+}
+.benefit .benefit-item h3{
+    @extend %h3Font;
+    font-size: 23px;
+}
+.benefit .benefit-item p{
+    @extend %descrip;
+    font-size: 15px;
+}
+.plant-list-item .text h3{
+    @extend %h3Font;
+}
+.plant-list-item .text span.org{
+    @extend %h3Font;
+    font-size: 12px;
+}
+.plant-list-item .text span{
+    @extend %h3Font;
+    font-size: 17px;
+}
+.product-media p{
+    color: #212529;
+    font-family: $main-font;
+    font-size: 16px;
+    font-weight: 400;
+}
+.insta-shop h2{
+    color: #333;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
