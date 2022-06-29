@@ -33,160 +33,6 @@ a{
     text-decoration: none;
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: $container-pad;
-}
-.main-nav{
-    display: flex;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: -100%;
-    bottom: 0;
-    z-index: 2;
-    opacity: 0;
-    transition: 1s;
-}
-.major{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-}
-.main-nav .icon{
-    display: flex;
-}
-.menu, .log{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: $main-font;
-    padding: 10px;
-}
-.menu{
-    background-color: black;
-    color: white;
-}
-.menu:hover{
-    cursor: pointer;
-}
-.menu i{
-    margin-right: 20px;
-}
-
-.main-nav .icon .log{
-    position: relative;
-    border: bottom;
-    background-color: white;
-}
-.main-nav .icon a{
-    display: block;
-    color: black;
-}
-.main-nav .icon a i{
-    margin-right: 10px;
-    font-size: 20px;
-}
-.main-nav .icon a span::after{
-    content: '';
-    width: 100%;
-    height: 0.5px;
-    background-color: #eee;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-.main-nav ul{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    font-family: $main-font;
-    padding: 30px;
-    background-color: white;
-    box-sizing: border-box;
-    height: 100%;
-}
-.main-nav li a{
-    display: inline-block;
-    padding-bottom: 30px;
-    color: #333;
-}
-.main-nav .close{
-    width: 100%;
-    background-color: $main-color;
-    font-family: $main-font;
-    color: white;
-    text-align: center;
-}
-.close label{
-    display: block;
-    padding: 10px 0;
-    width: 100%;
-}
-.main-nav .close i{
-    margin-right: 10px;
-}
-.close:hover{
-    cursor: pointer;
-}
-.main-nav .minor{
-    background-color:#0008;
-    width: 20%;
-    height: 100%;
-}
-input{
-    display: none;
-}
-.hb{
-    width: 30px;
-    height: 30px;
-    position: relative;
-}
-.hb span{
-    height: 2px;
-    background-color: $main-color;
-    position: absolute;
-    left: 0;
-}
-.hb span:nth-child(2){
-    width: 50%;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-}
-.hb span:nth-child(1){
-    top: 8px;
-    width: 70%;
-}
-.hb span:nth-child(3){
-    bottom: 8px;
-    width: 40%; 
-}
-.logo{
-    width: 135px;
-}
-.logo img{
-    width: 100%;
-}
-.fn-icon{
-    display: flex;
-}
-.fn-icon li:nth-child(2){
-    display: none;
-}
-.fn-icon i{
-    color: $main-color;
-    padding: 0 5px;
-}
-
-#menu-switch:checked ~ header .main-nav{
-    left: 0;
-    opacity: 1;
-}
 
 // ==============================
 .banner{
@@ -197,12 +43,13 @@ input{
     .pic{
         img{
             vertical-align: top;
-        width: 100%;
+            width: 80%;
+            margin-left: 20%;
         }
     }
     .text{
         position: absolute;
-        bottom: 70px;
+        bottom: 30%;
         left: 40px;
         margin: auto;
         span{
@@ -227,8 +74,13 @@ input{
             display: inline-block;
             padding: 15px 30px;
         }
+        a:hover{
+            background-color: rgb(45,187,240);
+            transition: .5s
+        }
     }
 }
+
 
 
 section h2{
@@ -238,42 +90,49 @@ section h2{
 }
 // ---------------
 
-.intro h2{
-    font-size: 30px;
-    padding: 40px 0;
+.plant-bene{
+    .intro{
+        text-align: center;
+        h2{
+            font-size: 30px;
+            padding: 40px 0;
+        }
+        p{
+            @extend %descrip;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+    }
+    .benefit{
+        .pic img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .text{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .first{
+            order: -1;
+        }
+        .text .benefit-item{
+            margin-bottom: 40px;
+            h3{
+                @extend %h3Font;
+                font-size: 23px;
+                margin-bottom:10px; 
+            }
+            p{
+                @extend %descrip;
+                font-size: 15px;
+            }
+        }
+    }
 }
-.intro p{
-    @extend %descrip;
-    font-size: 14px;
-    font-style: italic;
-    margin-bottom: 40px;
-}
-.benefit{
-    display: flex;
-    flex-direction: column;
-}
-.benefit .pic img{
-    width: 100%;
-    vertical-align: top;
-}
-.benefit-item:nth-of-type(1),
-.benefit-item:nth-of-type(2),
-.benefit-item:nth-of-type(3){
-    order: -1;
-}
-.benefit-item{
-    margin-bottom: 40px;
-}
-.benefit .benefit-item h3{
-    @extend %h3Font;
-    font-size: 23px;
-    margin-bottom:10px; 
-}
-.benefit .benefit-item p{
-    @extend %descrip;
-    font-size: 15px;
 
-}
+
 // ------------
 .pick{
     h2{
@@ -305,8 +164,17 @@ section h2{
     }
 }
 // hover要出現(換圖及lightbox)
+.pic{
+    position: relative;
+}
 .plant-list-item img:nth-of-type(2){
+    position: absolute;
+    top: 0;
+    left: 0;
     display: none;
+}
+.plant-list-item{
+    position: relative;
 }
 .plant-list-item .fn-list{
     display: none;
@@ -317,7 +185,6 @@ section h2{
 .sale .pic{
     position: relative;
 }
-
 .sold-out .pic::before,
 .sale .pic::before{
     background-color: $main-color;
@@ -333,6 +200,7 @@ section h2{
     padding: 0 10px;
     top: 40px;
     left: 0;
+    z-index: 100;
 }
 .sale .pic::before{
     content: 'SALE';
@@ -341,56 +209,85 @@ section h2{
     right: 0;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    z-index: 100;
 }
 // ----------
 .product-media{
-    padding: $part-dist 0;
+    padding: $part-dist*2 0;
     background-image: url(https://cdn.shopify.com/s/files/1/0356/8343/4555/files/bg-video1.jpg?v=1585532362);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 90px 0;
-}
-// .product-media .text,
-// .product-media .media{
-//     padding: 0 15px;
-// }
-.product-media h2{
-    margin-bottom: 25px;
-    text-align: left;
-}
-.product-media p{
-    color: #212529;
-    font-family: $main-font;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    font-weight: 400;
-}
-.product-media .text a{
-    font-family: $main-font;
-    background-color: transparent;
-    color: #212529;
-    font-size: 14px;
-    letter-spacing: 4px;
-    font-weight: 500;
-    border: 1px solid #212529;
-    display: inline-block;
-    padding: 15px 30px;
-}
-.product-media .media{
-    position: relative;
-}
-.product-media img:first-child{
-    width: 100%;
-}
-.product-media img:nth-child(2){
-    width: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    .text{
+        font-family: $main-font;
+        h2{
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        p{
+            color: #212529;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        a{
+            background-color: transparent;
+            color: #212529;
+            font-size: 14px;
+            letter-spacing: 4px;
+            font-weight: 500;
+            border: 1px solid #212529;
+            display: inline-block;
+            padding: 15px 30px;
+            position: relative;
+        }
+        a::before{
+            content: "";
+            width: 100%;
+            height: 0%;
+            background-color: $main-color;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .3s ease-in-out;
+        }
+        a::after{
+            content: "SHOP NOW";
+            width: 100%;
+            height: 100%;
+            top: 15px;
+            left: 30px;
+            position: absolute;
+            color: transparent;
+            font-weight: 600;
+            z-index: 2;
+            transition: all .3s ease-in-out;
+        }
+        a:hover::before{   
+            height: 100%;
+            opacity: 1;
+        }
+        a:hover::after{
+            color: white;
+        }
+    }
+    .media{
+        position: relative;
+        img:first-child{
+            vertical-align: top;
+            width: 100%;
+        }
+        img:nth-child(2){
+            width: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+
 }
 // ----------
 .insta-shop{
@@ -398,31 +295,25 @@ section h2{
     flex-direction: column;
     padding: $part-dist 0;
     align-items: center;
+    h2{
+        color: #333;
+        font-size: 22px;
+        letter-spacing: 2px;
+        margin-bottom: $foot-elem-bot;
+    }
+    &>img{
+        width: 45px;
+        order: -1;
+        padding: 15px;
+    }
 }
-.insta-shop h2{
-    color: #333;
-    font-size: 22px;
-    letter-spacing: 2px;
-    margin-bottom: $foot-elem-bot;
-}
-.insta-shop img:nth-child(2){
-    width: 45px;
-    order: -1;
-    padding: 15px;
-}
-.insta-shop .album-list{
-    display: flex;
-}
-.insta-shop .album-item{
-    width: 50%;
-    padding: 15px;
-}
+
 .insta-shop .album-item img{
     vertical-align: top;
     width: 100%;
 }
-.insta-shop .album-item:nth-child(3),
-.insta-shop .album-item:nth-child(4){
+.album-list :nth-child(3),
+.album-list :nth-child(4){
     display: none;
 }
 
@@ -465,6 +356,9 @@ footer{
     .media-list{
         display: flex;
         margin-bottom: $foot-elem-bot;
+        li{
+            position: relative;
+        }
         li a{
             display: flex;
             width: 45px;
@@ -477,6 +371,7 @@ footer{
             margin: 0 6px;
             color: white;
         }
+        
     }
 
     .copyright{
@@ -487,4 +382,433 @@ footer{
     }
 
 
+}
+
+//選單 phone
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $container-pad;
+}
+.main-nav{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: 1s;
+}
+.logo{
+    width: 135px;
+}
+.logo img{
+    width: 100%;
+}
+.fn-icon{
+    display: flex;
+}
+.fn-icon i{
+    color: $main-color;
+    padding: 0 10px;
+}
+.fn-icon li:nth-child(2){
+    display: none;
+}
+input{
+    display: none;
+}
+
+    
+.hb{
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+.hb span{
+    height: 2px;
+    background-color: $main-color;
+    position: absolute;
+    left: 0;
+}
+.hb span:nth-child(2){
+    width: 70%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.hb span:nth-child(1){
+    top: 8px;
+    width: 100%;
+}
+.hb span:nth-child(3){
+    bottom: 8px;
+    width: 40%; 
+}
+.major{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.main-nav .icon{
+    display: flex;
+}
+.menu, .log{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $main-font;
+    padding: 10px;
+}
+.menu{
+    background-color: black;
+    color: white;
+}
+.menu i{
+    margin-right: 20px;
+}
+
+.main-nav .icon .log{
+    position: relative;
+    border: bottom;
+    background-color: white;
+}
+.main-nav .icon a{
+    display: block;
+    color: black;
+}
+.main-nav .icon a i{
+    margin-right: 10px;
+    font-size: 20px;
+}
+.main-nav .icon a span::after{
+    content: '';
+    width: 100%;
+    height: 0.5px;
+    background-color: #eee;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.main-nav ul{
+    width: 100%;
+    font-size: 16px;
+    font-family: $main-font;
+    padding: 30px;
+    background-color: white;
+    box-sizing: border-box;
+    height: 100%;
+}
+.main-nav li a{
+    display: block;
+    padding-bottom: 30px;
+    color: #222;
+}
+.main-nav .close{
+    width: 100%;
+    background-color: $main-color;
+    font-family: $main-font;
+    color: white;
+    text-align: center;
+}
+.close label{
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+}
+.main-nav .close i{
+    margin-right: 10px;
+}
+label:hover{
+    cursor: pointer;
+}
+.main-nav .minor{
+    background-color:#0008;
+    width: 20%;
+    height: 100%;
+}
+.minor label{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#menu-switch:checked ~ header .main-nav{
+    left: 0;
+    opacity: 1;
+}
+
+@media screen and (min-width:768px){
+    .banner{
+        .row{
+            flex-direction: row-reverse;
+        }
+        .pic{
+            img{
+                width: 100%;
+                margin-left: unset;
+                position: relative;
+                right: 10%;
+            }
+        }
+        .text{
+            position: relative;
+            left: 10%;
+        }
+    }
+    .plant-bene{
+        .intro{
+            h2{
+                font-size: 30px;
+            }
+        }
+        .benefit{
+            .first{
+                order: 0;
+            }
+        }
+    }
+    .pick{
+        h2{
+            font-size: 35px;
+        }
+        .pic > a::before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .pic:hover{
+            a img:last-child{
+                display: block;
+                transition: 1s;
+            }
+            &>::before{
+                z-index: 5;
+                background-color: rgba(242,242,242,0.5);
+                transition: .5s;
+            }
+            .fn-list{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                z-index: 8;
+                .fn-icon{
+                    margin: 0 10px;
+                    a{
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        padding: 15px;
+                        background-color: white;
+                        border-radius: 50%;
+                        i{
+                            padding: unset;
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .fn-icon:hover{
+                    a{
+                        background-color: $main-color;
+                        transition: .5s;
+                        i{
+                            color: white;
+                            transition: .5s;
+                        }
+                    }
+                }    
+            }
+        }
+    }
+    .product-media{
+        .row{
+            align-items: center;
+        }
+        h2{
+            font-size: 30px;
+        }
+        .col-md-6{
+            margin-bottom: unset;
+        }
+    }
+    .insta-shop{
+        h2{
+            font-size: 30px;
+        }
+        li{
+            position: relative;
+        }
+        a::before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: #0008;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        a:hover::before{
+            transition: .5s;
+            opacity: 1;
+        }
+    }
+    .insta-shop .album-list :nth-child(3){
+        display: block;
+    }
+    footer{
+        .more-info{
+            a + a::before{
+                content: '';
+                height: 1px;
+                width: 20px;
+                background-color: #212529;
+                display: inline-block;
+                position: relative;
+                left: -10px;
+                top: -4px;
+            }
+        }
+        .media-list{
+            li:hover{
+                a{
+                    background-color: $main-color;
+                    transition: 1s;
+                }
+            }
+        }
+    }
+    
+}
+@media screen and (min-width:992px) {
+    .banner{
+        .text{
+            span{
+                font-size: 60px;
+            }
+            &:nth-of-type(3){
+                font-size: 60px;
+            }
+        }
+    }
+    .plant-bene{
+        .intro{
+            h2{
+                font-size: 35px;
+            }
+            
+        }
+        .benefit{
+            .pic{
+                align-self: center;
+            }
+            .first{
+                order: -1;
+                text-align: right;
+            }
+        }
+    }
+    .pick{
+        h2{
+            font-size: 40px;
+        }
+    }
+    .product-media{
+        h2{
+            font-size: 35px;
+        }
+        .text{
+            width:80%;
+            margin-left: 15%;
+        }
+    }
+    .insta-shop .album-list :nth-child(4){
+        display: block;
+    }
+}
+@media screen and (min-width:1200px){
+    header{
+        background-color: white;
+        position: sticky;
+        z-index: 3;
+        top: 0;
+        .main-nav{
+            width: 35%;
+            .major{
+                .icon,
+                .close{
+                    width: 0;
+                    display: none;
+                }
+                ul{
+                    background-color: unset;
+                    padding: unset;
+                    display: flex;
+                    align-items: center;
+                }
+                ul li{
+                    padding: 0 12px;
+                    font-size: 15px;
+                    position: relative;
+
+                }
+                ul li a{
+                    padding-bottom: 0;
+                }
+                ul li:nth-child(3)::before,
+                ul li:nth-child(5)::before{
+                    content: 'NEW';
+                    background-color: rgb(45,187,240);
+                    display: inline-block;
+                    font-size: 12px;
+                    color: white;
+                    padding: 1px 8px;
+                    position: absolute;
+                    top: -20px;
+                    right: -5px;
+                }
+                ul li:nth-child(3)::after,
+                ul li:nth-child(5)::after{
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    border-style: solid;
+                    border-width: 5px 12px 0 1px;
+                    border-color: rgb(45,187,240) transparent transparent transparent;
+                    right: 15px;
+                    top: -6px;
+                }
+                
+            }
+            .minor{
+                display: none;
+            }
+            position: unset;
+            opacity: 1;
+        }
+        .hb{
+            display: none;
+        }
+        .fn-icon{
+            width: 35%;
+            justify-content: flex-end;
+        }
+        .fn-icon li:nth-child(2){
+            display: block;
+        }
+    }
 }
