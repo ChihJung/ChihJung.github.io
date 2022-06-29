@@ -4,6 +4,7 @@ $main-color: #518432;
 $part-dist: 45px;
 $foot-elem-bot: 40px;
 $container-pad: 15px;
+
 %headSize{
     font-family: $main-font;
     color: #518432;
@@ -31,14 +32,12 @@ h1{
 a{
     text-decoration: none;
 }
-section.container{
-    padding: 0 $container-pad;
-}
+
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: $container-pad;
 }
 .main-nav{
     display: flex;
@@ -50,7 +49,6 @@ header{
     z-index: 2;
     opacity: 0;
     transition: 1s;
-    // transition: left 1s 0;
 }
 .major{
     width: 80%;
@@ -195,40 +193,44 @@ input{
     background-image: url(https://cdn.shopify.com/s/files/1/0356/8343/4555/files/bg-slide10.jpg?v=1585303728);
     padding: 40px 0;
     position: relative;
+
+    .pic{
+        img{
+            vertical-align: top;
+        width: 100%;
+        }
+    }
+    .text{
+        position: absolute;
+        bottom: 70px;
+        left: 40px;
+        margin: auto;
+        span{
+            display: block;
+            font-family: $main-font;
+            font-size: 35px;
+            color: black;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        span:nth-of-type(3){
+            font-size: 20px;
+            padding-bottom: 25px;
+        }
+        a{
+            font-family: $main-font;
+            background-color: black;
+            color: white;
+            font-size: 12px;
+            letter-spacing: 4px;
+            font-weight: 400;
+            display: inline-block;
+            padding: 15px 30px;
+        }
+    }
 }
 
-.banner .pic img{
-    vertical-align: middle;
-    width: 100%;
-}
-.banner .text span{
-    display: block;
-    font-family: $main-font;
-    font-size: 35px;
-    color: black;
-    font-weight: 300;
-    line-height: 1.5;
-}
-.banner .text span:nth-of-type(3){
-    font-size: 20px;
-    padding-bottom: 25px;
-}
-.banner .text a{
-    font-family: $main-font;
-    background-color: black;
-    color: white;
-    font-size: 12px;
-    letter-spacing: 4px;
-    font-weight: 400;
-    display: inline-block;
-    padding: 15px 30px;
-}
-.banner .text{
-    position: absolute;
-    bottom: 70px;
-    left: 40px;
-    margin: auto
-}
+
 section h2{
     @extend %headSize;
     font-size: 25px;
@@ -273,77 +275,68 @@ section h2{
 
 }
 // ------------
-section.pick{
-    padding: 0 unset;
+.pick{
+    h2{
+        padding: 20px 0;
+    }
+    .plant-list-item{
+        img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .text{
+            text-align: center;
+            padding: 18px 0;
+        }
+        h3,span.org, span{
+            @extend %h3Font;
+        }
+        h3{
+            margin-bottom: 15px; 
+        }
+        span{
+            display: inline-block;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+        span.org{
+            font-size: 12px;
+        }
+    }
 }
-.pick h2{
-    padding: 20px $container-pad;
-}
-.plant-list{
-    display: flex;
-    flex-wrap: wrap;
-}
-.plant-list-item{
-    width: 50%;
-    box-sizing: border-box;
-    padding: 15px;
-}
-.plant-list-item img{
-    width: 100%;
-    vertical-align: top;
-}
+// hover要出現(換圖及lightbox)
 .plant-list-item img:nth-of-type(2){
     display: none;
 }
 .plant-list-item .fn-list{
     display: none;
 }
-.plant-list-item .text{
-    text-align: center;
-    padding: 18px 0;
-}
-.plant-list-item .text h3{
-    @extend %h3Font;
-    margin-bottom: 15px; 
-}
-.plant-list-item .text span.org{
-    @extend %h3Font;
-    font-size: 12px;
-}
-.plant-list-item .text span{
-    @extend %h3Font;
-    display: inline-block;
-    font-size: 17px;
-    margin-bottom: 15px;
-}
+
+// soldout/sale decorate
 .sold-out .pic,
 .sale .pic{
     position: relative;
 }
-.sold-out .pic::before{
-    content: 'SOLD OUT';
+
+.sold-out .pic::before,
+.sale .pic::before{
     background-color: $main-color;
     font-family: $main-font;
     color: white;
     line-height: 20px;
     font-size: 12px;
-    padding: 0 10px;
     font-weight: 600;
     position: absolute;
+}
+.sold-out .pic::before{
+    content: 'SOLD OUT';
+    padding: 0 10px;
     top: 40px;
     left: 0;
 }
 .sale .pic::before{
     content: 'SALE';
-    background-color: $main-color;
-    font-family: $main-font;
-    color: white;
-    display: inline-block;
-    line-height: 20px;
-    font-size: 12px;
     padding: 8px 12px;
-    font-weight: 600;
-    position: absolute;
     top: 0;
     right: 0;
     border-top-left-radius: 20px;
@@ -436,56 +429,62 @@ section.pick{
 
 
 // =============================
+
+
 footer{
     background-color: #f4f4f4;
     padding: $part-dist 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-footer .logo{
-    margin-bottom: $foot-elem-bot;
-    width: 160px;
-}
-footer .logo img{
-    vertical-align: top;
-    width: 100%;
-}
-footer .more-info{
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: $foot-elem-bot;
-}
-footer .more-info a{
-    font-family: $main-font;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 12px;
-    color: #333;
-    display: inline-block;
-    padding: 0 10px;
-}
-footer .media-list{
-    display: flex;
-    margin-bottom: $foot-elem-bot;
-}
-.media-list li a{
-    display: flex;
-    width: 45px;
-    height: 45px;
-    background-color: #222;
-    border: 2px solid #333;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    margin: 0 6px;
-}
-.media-list li i{
-    color: white;
-}
-footer .copyright{
-    font-family: $main-font;
-    color: #aaa9a9;
-    font-size: 12.5px;
-    line-height: 1.5;
+    
+    .logo{
+        margin-bottom: $foot-elem-bot;
+        width: 160px;
+        img{
+            vertical-align: top;
+            width: 100%;
+        }
+    }
+
+    .more-info{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: $foot-elem-bot;
+        a{
+            font-family: $main-font;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 12px;
+            color: #333;
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+    
+    .media-list{
+        display: flex;
+        margin-bottom: $foot-elem-bot;
+        li a{
+            display: flex;
+            width: 45px;
+            height: 45px;
+            background-color: #222;
+            border: 2px solid #333;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            margin: 0 6px;
+            color: white;
+        }
+    }
+
+    .copyright{
+        font-family: $main-font;
+        color: #aaa9a9;
+        font-size: 12.5px;
+        line-height: 1.5;
+    }
+
+
 }
