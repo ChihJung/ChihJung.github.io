@@ -314,7 +314,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    text-align: center;
     .logo{
         margin-bottom: $foot-elem-bot;
         width: 160px;
@@ -325,8 +325,6 @@ footer{
     }
 
     .more-info{
-        display: flex;
-        flex-wrap: wrap;
         margin-bottom: $foot-elem-bot;
         a{
             font-family: $main-font;
@@ -728,7 +726,7 @@ label:hover{
     header{
         background-color: white;
         position: sticky;
-        z-index: 3;
+        z-index: 10;
         top: 0;
         .main-nav{
             width: 35%;
