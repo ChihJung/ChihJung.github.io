@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            background-color: lightblue;
+            margin: auto;
+        }
+        .game-control{
+            padding: 20px 20px 0;
+            display: flex;
+        }
+        .game-control > button{
+            flex-grow: 1;
+            font-size: 24px;
+            padding: 10px 0;
+            /* background-color: rgb(189,140,125); */
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="game-control">
+            <button class="start">START</button>
+            <button class="after-start peek" disabled="disabled">PEEK</button>
+            <button class="after-start try-agian" disabled="disabled">TRY AGAIN</button>
+        </div>
+        <div class="answer">
+            <span>猜答案</span>
+            <input type="text" placeholder="請輸入四個不重複的數字">
+            <button>GO!</button>
+        </div>
+        <div class="record"></div>
+    </div>
+
+
+    <script>
+        let answerNum, guessNum
+        let record = document.querySelector('.record')
+        let start = document.querySelector('.start')
+        let gameControl = document.querySelectorAll('.after-start')
+        let checkBtn = document.querySelector('.answer > :last-child')
+        // console.log(checkBtn)
+
+        checkBtn.addEventListener('click',function(){
+            let input = document.querySelector('input')
+            guessNum = input.value
+            console.log(guessNum)
+            if(guessNum.length == 4 || ){
+
+            }
+        })
+        
+        start.addEventListener('click', function(){
+            getRandomNum()
+            start.setAttribute('disabled', true)
+            setControlBtn()
+        })
+        
+        function setControlBtn(){
+            gameControl.forEach(btn =>{
+                btn.disabled = false               
+            })
+            gameControl[0].addEventListener('click', function(){
+                answerNum = answerNum.toString().replaceAll(',', '')
+                alert(`正確答案是【${answerNum}】`)
+            })
+            gameControl[1].addEventListener('click', function(event){
+                event.target.setAttribute('disabled', true)
+                gameControl[0].setAttribute('disabled', true)
+                start.disabled = false
+            })
+        }
+
+        function getRandomNum(){
+            let numArr = []
+            do{
+                let num = Math.floor(Math.random()*10)
+                if(!numArr.includes(num)){
+                    numArr.push(num)
+                }
+            }while(numArr.length != 4)
+            answerNum = numArr
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>
