@@ -1,0 +1,87 @@
+.container {
+    width: 600px;
+    background-color: #e2f2d5ae;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    color: #593E1A;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+h1{
+    color: #bbb;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+.game-control {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.game-control>button {
+    flex-grow: 1;
+    font-size: 26px;
+    padding: 10px 0;
+    border: 1px solid lightgray;
+}
+.answer{
+    display: flex;
+    justify-content: center;
+}
+.answer, .record{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.answer label,
+input,
+button {
+    color: #593E1A;
+    padding: 8px;
+    border: 1px solid lightgray;
+    font-size: 22px;
+    display: block;
+}
+
+input,
+.answer>button {
+    padding: 8px;
+}
+
+label{
+    background-color: #F0F0F0;
+    border-radius: 10px 0 0 10px;
+}
+.answer>button{
+    border-radius: 0 10px 10px 0;
+}
+.answer>button:hover{
+    cursor: pointer;
+}
+.record span {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 500;
+    display: block;
+}
+
+.record li {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    margin-bottom: 10px;
+    justify-content: space-around;
+}
+
+.record li>div {
+    font-size: 26px;
+    padding: 5px 8px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+}
+.record li>div:first-child{
+    color: white;
+}

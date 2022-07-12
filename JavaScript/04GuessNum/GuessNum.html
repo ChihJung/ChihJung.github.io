@@ -1,98 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f339f30122.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./guessNum.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+     rel="stylesheet">
     <title>Document</title>
-    <style>
-        .container{
-            width: 600px;
-            background-color: lightblue;
-            margin: auto;
-        }
-        .game-control{
-            padding: 20px 20px 0;
-            display: flex;
-        }
-        .game-control > button{
-            flex-grow: 1;
-            font-size: 24px;
-            padding: 10px 0;
-            /* background-color: rgb(189,140,125); */
-            border: 1px solid lightgray;
-        }
-    </style>
 </head>
+
 <body>
     <div class="container">
+        <h1><i class="fa-solid fa-question"></i>A<i class="fa-solid fa-question"></i>B</h1>
         <div class="game-control">
             <button class="start">START</button>
             <button class="after-start peek" disabled="disabled">PEEK</button>
             <button class="after-start try-agian" disabled="disabled">TRY AGAIN</button>
         </div>
         <div class="answer">
-            <span>猜答案</span>
-            <input type="text" placeholder="請輸入四個不重複的數字">
+            <label for="input-place">猜答案</label>
+            <input type="text" id="input-place" placeholder="請輸入四個不重複的數字" disabled="disabled">
             <button>GO!</button>
         </div>
-        <div class="record"></div>
+        <div class="record">
+            <span></span>
+            <!-- <ul>
+                <li class="item">
+                    <div class="hint"></div>
+                    <div class="input-num"></div>
+                </li>
+            </ul> -->
+        </div>
     </div>
 
 
     <script>
-        let answerNum, guessNum
-        let record = document.querySelector('.record')
-        let start = document.querySelector('.start')
-        let gameControl = document.querySelectorAll('.after-start')
-        let checkBtn = document.querySelector('.answer > :last-child')
-        // console.log(checkBtn)
+        let answerNum, guessNum, start, gameControl, input, record, hintShow
 
-        checkBtn.addEventListener('click',function(){
-            let input = document.querySelector('input')
-            guessNum = input.value
-            console.log(guessNum)
-            if(guessNum.length == 4 || ){
+        window.onload = function () {
+            record = document.querySelector('.record')
+            start = document.querySelector('.start')
+            gameControl = document.querySelectorAll('.after-start')
+            let checkBtn = document.querySelector('.answer > :last-child')
+            input = document.querySelector('input')
 
-            }
-        })
-        
-        start.addEventListener('click', function(){
-            getRandomNum()
-            start.setAttribute('disabled', true)
-            setControlBtn()
-        })
-        
-        function setControlBtn(){
-            gameControl.forEach(btn =>{
-                btn.disabled = false               
+            checkBtn.addEventListener('click', function () {
+                let input = document.querySelector('input')
+                guessNum = input.value
+                if (guessNum.length == 4 && Number(guessNum) != 'NaN' && guessNum > 0 && !guessNum.includes('.') && checkRepeat(guessNum).length == 4) {
+                    getAB()
+                    showRecord()
+                    // let recordHint = record.querySelector('li div:first-child')
+                    // if (hintShow == '4A0B') {
+                    //     recordHint.style.backgroundColor = 'red'
+                    // } else {
+                    //     recordHint.style.backgroundColor = 'green'
+                    // }
+                } else {
+                    alert('格式錯誤')
+                }
+                input.value = null
             })
-            gameControl[0].addEventListener('click', function(){
-                answerNum = answerNum.toString().replaceAll(',', '')
-                alert(`正確答案是【${answerNum}】`)
+
+            start.addEventListener('click', function () {
+                getRandomNum()
+                start.setAttribute('disabled', true)
+                setControlBtn()
             })
-            gameControl[1].addEventListener('click', function(event){
+
+        }
+
+
+        function checkRepeat() {
+            guessArr = guessNum.split('')
+            guessNum = guessArr.filter((x, index) => guessArr.indexOf(x) == index)
+            return guessNum
+        }
+
+        function setControlBtn() {
+            gameControl.forEach(btn => {
+                btn.disabled = false
+            })
+            gameControl[0].addEventListener('click', function () {
+                let answerStr = answerNum.join('')
+                alert(`正確答案是【${answerStr}】`)
+            })
+            gameControl[1].addEventListener('click', function (event) {
                 event.target.setAttribute('disabled', true)
                 gameControl[0].setAttribute('disabled', true)
                 start.disabled = false
+                input.setAttribute('disabled', true)
+                record.innerText = ''
             })
+            input.removeAttribute('disabled')
         }
 
-        function getRandomNum(){
+        function getRandomNum() {
             let numArr = []
-            do{
-                let num = Math.floor(Math.random()*10)
-                if(!numArr.includes(num)){
+            do {
+                let num = Math.floor(Math.random() * 10)
+                if (!numArr.includes(num)) {
                     numArr.push(num)
                 }
-            }while(numArr.length != 4)
+            } while (numArr.length != 4)
             answerNum = numArr
         }
-    
-    
-    
-    
+
+        function showRecord() {
+            let recordTitle = document.querySelector('.record > span')
+            recordTitle.innerText = '作答紀錄'
+            createList()
+        }
+
+        function createList() {
+            let ul = document.createElement('ul')
+            let li = document.createElement('li')
+            let hint = document.createElement('div')
+            let inputNum = document.createElement('div')
+            inputNum.innerText = guessNum.join('')
+            hint.innerText = hintShow
+            li.append(hint, inputNum)
+            ul.append(li)
+            record.append(ul)
+            let recordHint = li.querySelector('div:first-child')
+            if (hintShow == '4A0B') {
+                recordHint.style.backgroundColor = 'red'
+                alert('恭喜答對!!!')
+            } else {
+                recordHint.style.backgroundColor = 'green'
+            }
+        }
+
+        function getAB() {
+            let aCount = 0, bCount = 0
+            guessNum.filter((x) => {
+                answerNum.forEach(y => {
+                    if (x == y) {
+                        bCount++
+                        if (guessNum.indexOf(x) == answerNum.indexOf(y)) {
+                            aCount++
+                            bCount--
+                        }
+                    }
+                })
+            })
+            hintShow = `${aCount}A${bCount}B`
+        }
+
     </script>
 </body>
+
 </html>
