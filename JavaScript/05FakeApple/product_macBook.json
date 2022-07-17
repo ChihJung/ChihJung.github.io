@@ -1,0 +1,248 @@
+{
+    "macbook": {
+        "macbookpro": [
+            {
+                "id": "MP00GY08_256",
+                "color": "太空灰色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_256",
+                "color": "銀色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY08_512",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_512",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY08_001",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_001",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY16_256",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_256",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY16_512",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_512",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY16_001",
+                "color": "太空灰色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_001",
+                "color": "銀色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            }
+        ],
+        "macbookair": [
+            {
+                "id": "MA00GY08_256",
+                "color": "太空灰色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_256",
+                "color": "銀色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD08_256",
+                "color": "金色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY08_512",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_512",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD08_512",
+                "color": "金色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY08_001",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_001",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD08_001",
+                "color": "金色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY16_256",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_256",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD16_256",
+                "color": "金色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY16_512",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_512",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD16_512",
+                "color": "金色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY16_001",
+                "color": "太空灰色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_001",
+                "color": "銀色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD16_001",
+                "color": "金色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            }
+        ]
+    }
+}

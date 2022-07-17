@@ -1,0 +1,260 @@
+{
+    "iphone": {
+        "iphone13": [
+            {
+                "id": "iPM00GR128",
+                "color": "綠色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "粉紅色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "藍色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "午夜色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "星光色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "紅色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "綠色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "粉紅色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "藍色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "午夜色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "星光色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "紅色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "綠色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "粉紅色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "藍色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "午夜色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "星光色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "紅色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            }
+        ],
+        "iphone13mini": [
+            {
+                "id": "iPM00GR128",
+                "color": "綠色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "粉紅色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "藍色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "午夜色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "星光色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "紅色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "綠色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "粉紅色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "藍色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "午夜色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "星光色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "紅色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "綠色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "粉紅色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "藍色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "午夜色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "星光色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "紅色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            }
+        ]
+    }
+}

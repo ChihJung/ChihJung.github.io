@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- reset + css -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- google font -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/f339f30122.js" crossorigin="anonymous"></script>
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Calendar</title>
+</head>
+
+<body>
+
+    <div class="box">
+        <div id="header">
+            <div id="month-display"></div>
+            <div id="btns">
+                <button type="button" id="back"><i class="fa-solid fa-caret-left"></i></button>
+                <button type="button" id="next"><i class="fa-solid fa-caret-right"></i></button>
+            </div>
+        </div>
+        <div id="weekdays">
+            <div class="weekdays-item">SUN</div>
+            <div class="weekdays-item">MON</div>
+            <div class="weekdays-item">TUE</div>
+            <div class="weekdays-item">WED</div>
+            <div class="weekdays-item">THU</div>
+            <div class="weekdays-item">FRI</div>
+            <div class="weekdays-item">SAT</div>
+        </div>
+        <div id="calendar"></div>
+    </div>
+
+    <!-- --------------------- -->
+    <!-- --------- modal --------->
+    <div class="modal fade newEventModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-1">
+                            <label for="input-title" class="col-form-label"></label>
+                            <input type="text" class="form-control" id="input-title" onfocus="this.placeholder=''" onblur="this.placeholder='Title'"autofocus required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="event-date" class="col-form-label">Date:</label>
+                            <input type="date" class="form-control" id="event-date" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="event-time" class="col-form-label">Time:</label>
+                            <input type="time" class="form-control" id="event-time" required></input>
+                        </div>
+                        <div class="mb-1">
+                            <label for="location" class="col-form-label">Location:</label>
+                            <input type="text" class="form-control" id="location"></input>
+                        </div>
+                        <div class="mb-1 d-inline">
+                            <label for="tag-classify" class="col-form-label">Type:
+                                <select id="typeSelector">
+                                    <option selected></option>
+                                    <option value="Work">Work</option>
+                                    <option value="School">School</option>
+                                    <option value="Study">Study</option>
+                                    <option value="Exercise">Exercise</option>
+                                    <option value="Dating">Dating</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="mb-1 d-inline">
+                            <!-- <label for="markedColor" class="col-form-label">Color:
+                                <input type="color" class="form-control" id="markedColor"></input>
+                            </label> -->
+                            <label for="markedColor" class="col-form-label">
+                                Color:
+                                <input type="color" name="" id="markedColor">
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveBtn">SAVE</button>
+                    <button id="cancelBtn">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+</html>

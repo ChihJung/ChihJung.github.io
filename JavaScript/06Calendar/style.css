@@ -1,0 +1,123 @@
+:root{
+    --bg-main-color:#e4ccb3;
+    --text-color:#fffcf0;
+    --line-color:#73503c;
+    --main-font:;
+}
+body{
+}
+.box{
+    width: 910px;
+    margin: auto;
+    background-color: var(--bg-main-color);
+}
+#header{
+    text-align: center;
+    font-size: 26px;
+    padding: 5px;
+    color: var(--line-color);
+}
+#btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: relative; */
+    /* bottom: 40px; */
+    margin-top: -40px;
+}
+#back,#next{
+    font-size: 28px;
+    color: var(--line-color);
+    background-color: transparent;
+    border: none;
+}
+#back:hover,
+#next:hover{
+    color: #91684a;
+    transition: .3s;
+    cursor: pointer;
+}
+#header > span{
+    padding: 0 20px;
+}
+#weekdays{
+    display: flex;
+    color: var(--line-color);
+    align-items: center;
+    font-size: 20px;
+    height: 4%;
+}
+.weekdays-item{
+    width: 120px;
+    box-sizing: border-box;
+    margin: 0 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+#calendar{
+    display: flex;
+    flex-wrap: wrap;
+    color: var(--text-color);
+}
+.blank,
+.day{
+    font-size: 24px;
+    width: 120px;
+    height: 120px;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+    background-color: var(--line-color);
+    transition: .3s;
+}
+.blank{
+    background-color: transparent;
+}
+.day{
+    box-shadow: 1px 1px 1px 1px #73503c95;
+}
+
+.day:hover{
+    background-color: #91684a;
+    box-shadow: 3px 3px 1px 1px #91684ac7;
+    transition: .3s;
+    cursor: pointer;
+}
+.current{
+    background-color: #da9462e8;
+    box-shadow: 1px 1px 1px 1px #c8895b;
+}
+.day .with-event{
+    border-radius: 10px;
+    font-size: 18px;
+    max-height: 34px;
+    line-height: 1.8;
+    padding: 0 10px;
+    overflow: hidden;
+    word-break: break-all;
+    margin-bottom: 5px;
+    /* position: absolute; */
+}
+
+#saveBtn,
+#cancelBtn,
+.deleteBtn{
+    background-color: #e6d7c7;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+.inputComplete:hover,
+#cancelBtn:hover,
+.deleteBtn:hover{
+    background-color: #73503c;
+    color: white;
+}
+
+/* .with-event{
+    position: absolute;
+    display: block;
+    z-index: 10;
+} */

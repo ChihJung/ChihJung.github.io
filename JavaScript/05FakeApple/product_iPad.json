@@ -1,0 +1,232 @@
+{
+    "ipad": {
+        "ipadair": [
+            {
+                "id": "iPA00GY64W",
+                "color": "太空灰色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR64W",
+                "color": "星光色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK64W",
+                "color": "粉紅色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE64W",
+                "color": "紫色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL64W",
+                "color": "藍色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-blue.png"
+            },
+            {
+                "id": "iPA00GY256W",
+                "color": "太空灰色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR256W",
+                "color": "星光色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK256W",
+                "color": "粉紅色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE256W",
+                "color": "紫色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL256W",
+                "color": "藍色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-blue.png"
+            },
+            {
+                "id": "iPA00GY64C",
+                "color": "太空灰色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR64C",
+                "color": "星光色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK64C",
+                "color": "粉紅色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE64C",
+                "color": "紫色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL64C",
+                "color": "藍色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-blue.png"
+            },
+            {
+                "id": "iPA00GY256C",
+                "color": "太空灰色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR256C",
+                "color": "星光色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK256C",
+                "color": "粉紅色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE256CW",
+                "color": "紫色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL256C",
+                "color": "藍色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-blue.png"
+            }
+        ],
+        "ipad": [
+            {
+                "id": "iPD00GY64W",
+                "color": "太空灰色",
+                "price": 10500,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR64W",
+                "color": "銀色",
+                "price": 10500,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-silver.png"
+            },
+            {
+                "id": "iPD00GY256W",
+                "color": "太空灰色",
+                "price": 15000,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR256W",
+                "color": "銀色",
+                "price": 15000,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-silver.png"
+            },
+            {
+                "id": "iPD00GY64C",
+                "color": "太空灰色",
+                "price": 14500,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR64C",
+                "color": "銀色",
+                "price": 14500,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-silver.png"
+            },
+            {
+                "id": "iPD00GY256C",
+                "color": "太空灰色",
+                "price": 19000,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR256C",
+                "color": "銀色",
+                "price": 19000,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-silver.png"
+            }
+        ]
+    }
+}

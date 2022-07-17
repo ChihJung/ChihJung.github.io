@@ -1,0 +1,736 @@
+{
+    "macbook": {
+        "macbookpro": [
+            {
+                "id": "MP00GY08_256",
+                "color": "太空灰色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_256",
+                "color": "銀色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY08_512",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_512",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY08_001",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_001",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY16_256",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_256",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY16_512",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_512",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GY16_001",
+                "color": "太空灰色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-pro-color-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_001",
+                "color": "銀色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            }
+        ],
+        "macbookair": [
+            {
+                "id": "MA00GY08_256",
+                "color": "太空灰色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_256",
+                "color": "銀色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD08_256",
+                "color": "金色",
+                "price": 30900,
+                "ram" : "8GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY08_512",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_512",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD08_512",
+                "color": "金色",
+                "price": 36900,
+                "ram" : "8GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY08_001",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR08_001",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD08_001",
+                "color": "金色",
+                "price": 42900,
+                "ram" : "8GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY16_256",
+                "color": "太空灰色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_256",
+                "color": "銀色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD16_256",
+                "color": "金色",
+                "price": 36900,
+                "ram" : "16GB",
+                "storage": "256GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY16_512",
+                "color": "太空灰色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_512",
+                "color": "銀色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD16_512",
+                "color": "金色",
+                "price": 42900,
+                "ram" : "16GB",
+                "storage": "512GB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            },
+            {
+                "id": "MP00GY16_001",
+                "color": "太空灰色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gray.jpg"
+            },
+            {
+                "id": "MP00SR16_001",
+                "color": "銀色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-silver.jpg"
+            },
+            {
+                "id": "MP00GD16_001",
+                "color": "金色",
+                "price": 48900,
+                "ram" : "16GB",
+                "storage": "1TB",
+                "picture": "./pic/macbook-air-gold.jpg"
+            }
+        ]
+    },
+    "ipad": {
+        "ipadair": [
+            {
+                "id": "iPA00GY64W",
+                "color": "太空灰色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR64W",
+                "color": "星光色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK64W",
+                "color": "粉紅色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE64W",
+                "color": "紫色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL64W",
+                "color": "藍色",
+                "price": 18900,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-blue.png"
+            },
+            {
+                "id": "iPA00GY256W",
+                "color": "太空灰色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR256W",
+                "color": "星光色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK256W",
+                "color": "粉紅色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE256W",
+                "color": "紫色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL256W",
+                "color": "藍色",
+                "price": 23900,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-air-blue.png"
+            },
+            {
+                "id": "iPA00GY64C",
+                "color": "太空灰色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR64C",
+                "color": "星光色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK64C",
+                "color": "粉紅色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE64C",
+                "color": "紫色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL64C",
+                "color": "藍色",
+                "price": 23200,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-blue.png"
+            },
+            {
+                "id": "iPA00GY256C",
+                "color": "太空灰色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-gray.png"
+            },
+            {
+                "id": "iPA00SR256C",
+                "color": "星光色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-starlight.png"
+            },
+            {
+                "id": "iPA00PK256C",
+                "color": "粉紅色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-pink.png"
+            },
+            {
+                "id": "iPA00PE256CW",
+                "color": "紫色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-purple.png"
+            },
+            {
+                "id": "iPA00BL256C",
+                "color": "藍色",
+                "price": 28200,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-air-blue.png"
+            }
+        ],
+        "ipad": [
+            {
+                "id": "iPD00GY64W",
+                "color": "太空灰色",
+                "price": 10500,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR64W",
+                "color": "銀色",
+                "price": 10500,
+                "storage": "64GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-silver.png"
+            },
+            {
+                "id": "iPD00GY256W",
+                "color": "太空灰色",
+                "price": 15000,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR256W",
+                "color": "銀色",
+                "price": 15000,
+                "storage": "256GB",
+                "network": "Wi-Fi",
+                "picture": "./pic/ipad-silver.png"
+            },
+            {
+                "id": "iPD00GY64C",
+                "color": "太空灰色",
+                "price": 14500,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR64C",
+                "color": "銀色",
+                "price": 14500,
+                "storage": "64GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-silver.png"
+            },
+            {
+                "id": "iPD00GY256C",
+                "color": "太空灰色",
+                "price": 19000,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-gray.png"
+            },
+            {
+                "id": "iPD00SR256C",
+                "color": "銀色",
+                "price": 19000,
+                "storage": "256GB",
+                "network": "Cellular",
+                "picture": "./pic/ipad-silver.png"
+            }
+        ]
+    },
+    "iphone": {
+        "iphone13": [
+            {
+                "id": "iPM00GR128",
+                "color": "綠色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "粉紅色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "藍色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "午夜色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "星光色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "紅色",
+                "price": 25900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "綠色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "粉紅色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "藍色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "午夜色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "星光色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "紅色",
+                "price": 29400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "綠色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "粉紅色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "藍色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "午夜色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "星光色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "紅色",
+                "price": 36400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            }
+        ],
+        "iphone13mini": [
+            {
+                "id": "iPM00GR128",
+                "color": "綠色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "粉紅色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "藍色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "午夜色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "星光色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR128",
+                "color": "紅色",
+                "price": 22900,
+                "storage": "128GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "綠色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "粉紅色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "藍色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "午夜色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "星光色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR256",
+                "color": "紅色",
+                "price": 26400,
+                "storage": "256GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "綠色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-green.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "粉紅色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-pink.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "藍色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-blue.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "午夜色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-midnight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "星光色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-starlight.png"
+            },
+            {
+                "id": "iPM00GR512",
+                "color": "紅色",
+                "price": 33400,
+                "storage": "512GB",
+                "picture": "./pic/iphone-13-mini-red.png"
+            }
+        ]
+    }
+}

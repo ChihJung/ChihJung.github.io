@@ -54,12 +54,6 @@
                 if (guessNum.length == 4 && Number(guessNum) != 'NaN' && guessNum > 0 && !guessNum.includes('.') && checkRepeat(guessNum).length == 4) {
                     getAB()
                     showRecord()
-                    // let recordHint = record.querySelector('li div:first-child')
-                    // if (hintShow == '4A0B') {
-                    //     recordHint.style.backgroundColor = 'red'
-                    // } else {
-                    //     recordHint.style.backgroundColor = 'green'
-                    // }
                 } else {
                     alert('格式錯誤')
                 }
@@ -151,6 +145,9 @@
             hintShow = `${aCount}A${bCount}B`
         }
 
+
+        let numberRegExp = /^[0-9]{4}$/
+        let 
     </script>
 </body>
 
