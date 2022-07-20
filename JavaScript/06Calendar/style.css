@@ -62,7 +62,7 @@ body{
 }
 .blank,
 .day{
-    font-size: 24px;
+    font-size: 18px;
     width: 120px;
     height: 120px;
     box-sizing: border-box;
@@ -88,7 +88,7 @@ body{
     background-color: #da9462e8;
     box-shadow: 1px 1px 1px 1px #c8895b;
 }
-.day .with-event{
+.day [data-id]{
     border-radius: 10px;
     font-size: 18px;
     max-height: 34px;
@@ -101,23 +101,36 @@ body{
 }
 
 #saveBtn,
-#cancelBtn,
-.deleteBtn{
+#deleteBtn,
+.btn#addBtn{
     background-color: #e6d7c7;
     border: none;
     border-radius: 10px;
-    font-size: 20px;
     padding: 5px 10px;
 }
-.inputComplete:hover,
-#cancelBtn:hover,
-.deleteBtn:hover{
+.inputComplete:hover{
     background-color: #73503c;
     color: white;
 }
 
-/* .with-event{
-    position: absolute;
+.already:hover{
+    background-color: #73503c;
+    /* color: white; */
+}
+
+.schedule{
+    color: var(--text-color);
+    display: flex;
+    border-radius: 10px;
+}
+.schedule > span{
     display: block;
-    z-index: 10;
-} */
+    padding: 3px 20px;
+}
+.withEvent{
+    border-radius: 10px;
+    padding: 2px 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

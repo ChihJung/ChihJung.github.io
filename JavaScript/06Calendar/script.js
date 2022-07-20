@@ -1,53 +1,42 @@
 // 宣告
 const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-let day, month, year, click
-let monthCounter = 0, withEventCounter = 0
-let eventArr
-if (localStorage.getItem('events')) {
-    eventArr = JSON.parse(localStorage.getItem('events'))
-} else {
-    eventArr = []
-}
+let click, dateStr, dynamicDate
+let monthCounter = 0
+
+const today = new Date()
+
+let day = today.getDate()
+let year = today.getFullYear()
+let month = today.getMonth()
+
 
 // DOM
 const monthDisplay = document.querySelector('#month-display')
 const calendar = document.querySelector('#calendar')
 const backBtn = document.getElementById('back')
 const nextBtn = document.getElementById('next')
+const deleteBtn = document.getElementById('deleteBtn')
 const saveBtn = document.getElementById('saveBtn')
-const cancelBtn = document.getElementById('cancelBtn')
 const inputAll = document.querySelectorAll('input')
 
 // window.onload
 window.onload = function () {
     // calendar
-    setHeader()
-    getNsetDays()
+
+    initCalendar()
     backBtn.addEventListener('click', goback)
     nextBtn.addEventListener('click', goforward)
 
     // inside Modal
     saveBtn.addEventListener('click', saveEvent)
-    cancelBtn.addEventListener('click', closeModal)
 }
 
 
 // function
-function setHeader() {
-    const date = new Date()
-    if (monthCounter !== 0) {
-        date.setMonth(new Date().getMonth() + monthCounter)
-    }
-
-    day = date.getDate()
-    year = date.getFullYear()
-    month = date.getMonth()
-
+function initCalendar() {
     monthString = months[month]
     document.querySelector('#month-display').innerHTML = `${year}  ${monthString}`
-}
 
-function getNsetDays() {
     // 這個月第一天禮拜幾
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     let firstDayWeekday = new Date(year, month, 1)
@@ -66,25 +55,65 @@ function getNsetDays() {
             square.classList.add('day')
             $(square).attr({
                 "data-bs-toggle": "modal",
-                "data-bs-target": "#exampleModal"
-            })
-            //每日加上click事件 => [開啟modal addevent]
-            let dateStr = `${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`
-            square.addEventListener('click', ()=>{
-                clickDay(dateStr)
+                "data-bs-target": "#exampleModalToggle",
+                "role": "button"
             })
 
-            // event顯示在行事曆上
-            let dayWithEvent = eventArr.filter(x => x.eventDate === dateStr)
-            if (dayWithEvent != undefined) {
-                dayWithEvent.forEach(e => {
+            if (localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
+                let todoList = JSON.parse(localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
+                // console.log(todoList)
+                todoList.forEach((e) => {
+                    // event顯示在行事曆上
                     let eventDiv = document.createElement('div')
-                    eventDiv.classList.add('with-event')
                     eventDiv.innerText = e.eventTitle
+                    eventDiv.classList.add('withEvent')
                     eventDiv.style.backgroundColor = e.color
                     square.appendChild(eventDiv)
                 })
             }
+
+            square.addEventListener('click', (event) => {
+                console.log(event)
+                let chosenDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${event.target.childNodes[0].data.toString().padStart(2, '0')}`
+                console.log(chosenDate)
+
+                // first Modal Page-設定Title
+                // second Modal 帶入日期 
+                document.querySelector('.first-modal-title').innerText = `${chosenDate} Schedule`
+                inputAll[1].value = chosenDate
+
+
+
+                let mBody = document.querySelector('.first-modal-body')
+                mBody.innerHTML = ''
+
+                if (localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
+
+                    let todoList = JSON.parse(localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
+
+                    todoList.forEach((e) => {
+                        // event顯示在第一個Modal上
+                        let modalEventDiv = document.createElement('div')
+                        modalEventDiv.classList.add('schedule')
+                        let title = document.createElement('span')
+                        title.innerText = `${e.eventTitle}`
+                        let time = document.createElement('span')
+                        time.innerText = `${e.eventTime}`
+                        modalEventDiv.append(title)
+                        modalEventDiv.insertBefore(time, title)
+                        mBody.innerHTML = ''
+                        mBody.appendChild(modalEventDiv)
+                        modalEventDiv.style.backgroundColor = e.color
+                        modalEventDiv.style.cursor = 'pointer'
+                        modalEventDiv.style.color = '#fffcf0'
+
+                    })
+                }
+                // event.stopPropagation()
+
+            })
+
+
 
             // 今日 添加'current'class
             if (i - previousDays == day && monthCounter == 0) {
@@ -102,56 +131,47 @@ function getNsetDays() {
 
 function goback() {
     monthCounter--
-    setHeader()
-    getNsetDays()
+    month--
+    if (month == -1) {
+        year--
+        month = 11
+    }
+
+    initCalendar()
 }
 
 function goforward() {
-    monthCounter++
-    setHeader()
-    getNsetDays()
-}
-
-function clickDay(inputdate) {
-    click = inputdate
-    inputAll[1].value = inputdate
-    // if(inputAll[0].focus == true){
-    //     inputAll[0].placeholder 
-    // }
-    let dayWithEvent = eventArr.find(x => x.eventDate === inputdate)
-    if (dayWithEvent != undefined && withEventCounter == 0) {
-        console.log('event has exist')
-        // add 'deleteBtn' before saveBtn
-        let button = document.createElement('button')
-        button.classList.add('deleteBtn')
-        button.innerText = 'DELETE'
-        saveBtn.insertAdjacentElement('beforebegin', button)
-        button.addEventListener('click', deleteEvent)
-        withEventCounter++
-
-        // 帶入第一筆資料
-        let filterlist = eventArr.filter(x => x.eventDate === click)
-        inputAll.forEach((x, index) => {
-            let key = Object.keys(filterlist[0])
-            if (index != inputAll.length - 1) {
-                x.value = filterlist[0][key[index]]
-            } else {
-                x.value = filterlist[0][key[index + 1]]
-            }
-        })
-    } else {
-        console.log('dont\'t have event')
+    monthCounter
+    month++
+    if (month == 12) {
+        year++
+        month = 0
     }
 
+    initCalendar()
 }
 
-function closeModal() {
-    click = null
+// function clickDay() {
+//     // click = inputdate
+//     // console.log(click)
+//     // dynamicDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${event.target.innerText.toString().padStart(2, '0')}`
+//     // inputAll[1].value = `${year}-${(month + 1).toString().padStart(2, '0')}-${event.target.innerText.toString().padStart(2, '0')}`
+//     event.target.setAttribute('data-id', `${dynamicDate}`)
+//     // let dayWithEvent = eventArr.find(x => x.eventDate === inputdate)
+//     let dayWithEvent = localKey.find(x => x.id === dynamicDate)
+//     if (dayWithEvent != undefined && withEventCounter == 0) {
+//         console.log('event has exist')
+//         deleteBtn.classList.add('already')
+//         deleteBtn.disabled = false
+//         deleteBtn.addEventListener('click', deleteEvent)
+//         withEventCounter++
+//     } else {
+//         console.log('dont\'t have event')
+//     }
 
-    document.querySelector('.newEventModal').style.display = 'none'
-    document.querySelector('.modal-backdrop').style.display = 'none'
+// }
 
-    // 清除預填的東西
+function clearInput() {
     inputAll.forEach((i, index) => {
         if (index != inputAll.length - 1) {
             i.value = ''
@@ -164,8 +184,15 @@ function closeModal() {
     if (option.value != undefined) {
         document.getElementById('typeSelector').selectedIndex = 0
     }
-    setHeader()
-    getNsetDays()
+}
+
+function closeModal() {
+    document.querySelector('.newEventModal').style.display = 'none'
+    // document.querySelector('.modal-backdrop').style.display = 'none'
+
+    // 清除預填的東西
+    clearInput()
+    initCalendar()
 }
 
 function saveEvent() {
@@ -173,33 +200,66 @@ function saveEvent() {
     let typeSelector = document.getElementById('typeSelector')
     let typeVal = typeSelector.options[typeSelector.selectedIndex].value;
 
-
     // 過濾必填,把資訊推入eventArr
+    let date = inputAll[1].value
     if (inputAll[0].value != '' && inputAll[1].value != '' && inputAll[2].value != '') {
         saveBtn.classList.add('inputComplete')
-        eventArr.push({
+        let scheduleObj = {
             eventTitle: inputAll[0].value,
-            eventDate: inputAll[1].value,
+            eventDate: date,
             eventTime: inputAll[2].value,
             location: inputAll[3].value,
             type: typeVal,
             color: inputAll[4].value
-        })
+        }
 
-        // localStorage
-        localStorage.setItem('events', JSON.stringify(eventArr))
+        let scheduleList = []
+        if (localStorage.getItem(date, scheduleObj) == null) {
+            scheduleList.push(scheduleObj)
+        } else {
+            scheduleList = JSON.parse(localStorage.getItem(date))
+            scheduleList.push(scheduleObj)
+        }
+        localStorage.setItem(date, JSON.stringify(scheduleList))
 
         // 存完關閉Modal
         closeModal()
+        initCalendar()
     }
-
 }
 
 function deleteEvent() {
+    let text = chosenEvent(event)
+
     // 留下與點選日期不符的
-    console.log(eventArr)
-    eventArr = eventArr.filter(x => x.eventDate !== click)
-    console.log(eventArr)
+    eventArr = eventArr.filter(x => x.eventDate !== click && x.eventTitle != text)
     localStorage.setItem('events', JSON.stringify(eventArr))
     closeModal()
+}
+
+function chosenEvent(event) {
+    let data = event.target.dataset.id
+    let text = event.target.innerText
+    let dayWithEvent = JSON.stringify(eventArr.filter(x => x.eventDate === data && text === x.eventTitle))
+    let eventStr = dayWithEvent.split('","')
+    console.log(eventStr)
+
+    let arr = []
+    eventStr.forEach(x => {
+        console.log(x)
+        x = x.split('":"')
+        arr.push(x[1])
+    })
+
+    // 帶入該筆資料
+    if (arr[1] == click) {
+        inputAll.forEach((x, index) => {
+            if (index != inputAll.length - 1) {
+                x.value = arr[index]
+            } else {
+                x.value = arr[index + 1]
+            }
+        })
+    }
+    return text
 }

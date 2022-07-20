@@ -43,7 +43,7 @@
 
     <!-- --------------------- -->
     <!-- --------- modal --------->
-    <div class="modal fade newEventModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <!-- <div class="modal fade newEventModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -82,9 +82,6 @@
                             </label>
                         </div>
                         <div class="mb-1 d-inline">
-                            <!-- <label for="markedColor" class="col-form-label">Color:
-                                <input type="color" class="form-control" id="markedColor"></input>
-                            </label> -->
                             <label for="markedColor" class="col-form-label">
                                 Color:
                                 <input type="color" name="" id="markedColor">
@@ -93,12 +90,85 @@
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <button id="deleteBtn">DELETE</button>
                     <button id="saveBtn">SAVE</button>
                     <button id="cancelBtn">CANCEL</button>
                 </div>
             </div>
         </div>
+    </div> -->
+
+
+    <div class="modal fade newEventModal" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title first-modal-title" id="exampleModalToggleLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body first-modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" id="editBtn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">ADD</button>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="modal fade newEventModal" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-1">
+                            <label for="input-title" class="col-form-label"></label>
+                            <input type="text" class="form-control" id="input-title" onfocus="this.placeholder=''" onblur="this.placeholder='Title'"autofocus required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="event-date" class="col-form-label">Date:</label>
+                            <input type="date" class="form-control" id="event-date" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="event-time" class="col-form-label">Time:</label>
+                            <input type="time" class="form-control" id="event-time" required></input>
+                        </div>
+                        <div class="mb-1">
+                            <label for="location" class="col-form-label">Location:</label>
+                            <input type="text" class="form-control" id="location"></input>
+                        </div>
+                        <div class="mb-1 d-inline">
+                            <label for="tag-classify" class="col-form-label">Type:
+                                <select id="typeSelector">
+                                    <option selected></option>
+                                    <option value="Work">Work</option>
+                                    <option value="School">School</option>
+                                    <option value="Study">Study</option>
+                                    <option value="Exercise">Exercise</option>
+                                    <option value="Dating">Dating</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="mb-1 d-inline">
+                            <label for="markedColor" class="col-form-label">
+                                Color:
+                                <input type="color" name="" id="markedColor">
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveBtn" data-bs-dismiss="modal" aria-label="Close">SAVE</button>
+                    <!-- <button id="cancelBtn" data-bs-dismiss="modal" aria-label="Close">CANCEL</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
 
 
     <script src="./script.js"></script>
