@@ -76,6 +76,7 @@ body{
 }
 .day{
     box-shadow: 1px 1px 1px 1px #73503c95;
+    overflow: hidden;
 }
 
 .day:hover{
@@ -88,21 +89,10 @@ body{
     background-color: #da9462e8;
     box-shadow: 1px 1px 1px 1px #c8895b;
 }
-.day [data-id]{
-    border-radius: 10px;
-    font-size: 18px;
-    max-height: 34px;
-    line-height: 1.8;
-    padding: 0 10px;
-    overflow: hidden;
-    word-break: break-all;
-    margin-bottom: 5px;
-    /* position: absolute; */
-}
 
 #saveBtn,
 #deleteBtn,
-.btn#addBtn{
+#editBtn{
     background-color: #e6d7c7;
     border: none;
     border-radius: 10px;
@@ -113,10 +103,10 @@ body{
     color: white;
 }
 
-.already:hover{
+/* .already:hover{
     background-color: #73503c;
-    /* color: white; */
-}
+    color: white;
+} */
 
 .schedule{
     color: var(--text-color);
@@ -132,5 +122,6 @@ body{
     padding: 2px 5px;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 5px;
 }
 

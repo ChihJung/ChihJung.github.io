@@ -59,28 +59,37 @@ function initCalendar() {
                 "role": "button"
             })
 
+            square.setAttribute('date', `${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`)
             if (localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
                 let todoList = JSON.parse(localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
                 // console.log(todoList)
+                
+                todoList.sort((a, b) => {return a.eventTime.localeCompare(b.eventTime)})
                 todoList.forEach((e) => {
                     // event顯示在行事曆上
                     let eventDiv = document.createElement('div')
                     eventDiv.innerText = e.eventTitle
                     eventDiv.classList.add('withEvent')
                     eventDiv.style.backgroundColor = e.color
+                    
+                    eventDiv.setAttribute('date', `${e.eventDate}`)
                     square.appendChild(eventDiv)
                 })
             }
 
             square.addEventListener('click', (event) => {
-                console.log(event)
-                let chosenDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${event.target.childNodes[0].data.toString().padStart(2, '0')}`
-                console.log(chosenDate)
 
                 // first Modal Page-設定Title
-                // second Modal 帶入日期 
+                // second Modal 帶入日期
+                let chosenDate = event.target.getAttribute('date')
                 document.querySelector('.first-modal-title').innerText = `${chosenDate} Schedule`
-                inputAll[1].value = chosenDate
+                inputAll.forEach((item,index) =>{
+                    if(index == 1){
+                        inputAll[1].value = chosenDate
+                    }else{
+                        inputAll[0].value = ''
+                    }
+                })
 
 
 
@@ -89,7 +98,11 @@ function initCalendar() {
 
                 if (localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
 
+
                     let todoList = JSON.parse(localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
+
+                    debugger
+                    todoList.sort((a, b) => {return a.eventTime.localeCompare(b.eventTime)})
 
                     todoList.forEach((e) => {
                         // event顯示在第一個Modal上
@@ -99,17 +112,50 @@ function initCalendar() {
                         title.innerText = `${e.eventTitle}`
                         let time = document.createElement('span')
                         time.innerText = `${e.eventTime}`
+                        title.setAttribute('info', `${e.eventDate}/${e.eventTitle}/${e.eventTime}`)
                         modalEventDiv.append(title)
+                        time.setAttribute('info', `${e.eventDate}/${e.eventTitle}/${e.eventTime}`)
                         modalEventDiv.insertBefore(time, title)
-                        mBody.innerHTML = ''
                         mBody.appendChild(modalEventDiv)
                         modalEventDiv.style.backgroundColor = e.color
                         modalEventDiv.style.cursor = 'pointer'
                         modalEventDiv.style.color = '#fffcf0'
+                        modalEventDiv.style.marginBottom = '5px'
+                        $(modalEventDiv).attr({
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#exampleModalToggle2",
+                            "role": "button",
+                            "info" : `${e.eventDate}/${e.eventTitle}/${e.eventTime}`
+                        })
+
+                        
+                        modalEventDiv.addEventListener('click', (event) =>{
+                            // clearInput()
+                            console.log(event)
+                            let date = (event.target.getAttribute('info').split('/'))[0]
+                            let title = (event.target.getAttribute('info').split('/'))[1]
+                            let time = (event.target.getAttribute('info').split('/'))[2]
+                            // console.log(date)
+                            // console.log(title)
+                            // console.log(time)
+                            // console.log(JSON.parse(localStorage.getItem(date)))
+                            let todo = JSON.parse(localStorage.getItem(date))
+                            console.log(todo)
+                            inputAll[0].value = title
+                            inputAll[2].value = time
+                            inputAll[3].value == undefined ? '' : todo.location
+                            inputAll[4].value = todo.color
+                            console.log(todo.location)
+                            console.log(todo.color)
+                            
+                        })
+
 
                     })
-                }
+
                 // event.stopPropagation()
+
+                }
 
             })
 
@@ -227,6 +273,8 @@ function saveEvent() {
         initCalendar()
     }
 }
+
+
 
 function deleteEvent() {
     let text = chosenEvent(event)

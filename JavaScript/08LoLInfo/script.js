@@ -121,15 +121,13 @@ function setImgModal(event) {
 }
 
 function setVideoModal(event) {
-    let mBody = document.querySelector('.video-modal .modal-body')
-    mBody.innerHTML = ''
+   
     let info = event.target.getAttribute('name')
     document.querySelector('#video-title').innerText = info
 
-    let iframe = document.createElement('iframe')
-    iframe.src = 'https://youtu.be/d2eA8wDBEXw'
+    let iframe = document.querySelector('iframe')
+    iframe.src = 'https://www.youtube.com/embed/d2eA8wDBEXw'
 
     iframe.classList.add('w-100')
-    mBody.append(iframe)
 }
 
