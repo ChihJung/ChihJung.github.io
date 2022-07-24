@@ -18,6 +18,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const dataUrl = 'https://opengov.tainan.gov.tw:443/OpenApi/api/service/Get/9113c7c8-7819-4ac7-902f-3933e3b539db'
 
 // DOM
+const distSelect = document.querySelector('#district')
+const typeSelect = document.querySelector('#type')
+const search = document.querySelector('input')
+const outcome = document.querySelector('.outcome')
+
 
 // window.onload
 window.onload = function () {
@@ -38,7 +43,6 @@ window.onload = function () {
                         descrip: org.content,
                         lat: org.y,
                         lng: org.x
-
                     }
                 })
                 .groupBy('district')
@@ -47,33 +51,79 @@ window.onload = function () {
             // 選單1-district
             let districts = Object.keys(sortData)
             // console.log(districts)
-            let distSelect = document.querySelector('#district')
-            setSelectOpt(districts, distSelect)
+            setSelectOpt(districts, distSelect, '區域')
 
 
             // 選單2-type(
             let types = Object.keys(orgData.groupBy('u'))
             // console.log(types)
-            let typeSelect = document.querySelector('#type')
-            setSelectOpt(types, typeSelect)
+            setSelectOpt(types, typeSelect, '類型')
 
-            // 選區,產生表格
+            // 選區
             // marker移到目標區域
-            document.querySelector('#district')
-                .addEventListener('change', function () {
-                    // console.log(this.value)
-                    if (this.value != '') {
-                        let countrys = sortData[this.value]
-                        map.setView([countrys[0].lat, countrys[0].lng], 11)
-                    }
-                    districtSelected(event, sortData)
-                    setMarker()
-                })
+            let districtValue
+            let typeValue
+            distSelect.addEventListener('change', function () {
+                districtValue = distSelect.selectedOptions[0].value
+                if (districtValue != '' || typeValue != '') {
+                    search.disabled = false
+                }
+                if (districtValue == '' && typeValue == '') {
+                    search.disabled = true
+                }
+                // console.log(this.value)
+                if (this.value != '') {
+                    let countrys = sortData[this.value]
+                    map.setView([countrys[0].lat, countrys[0].lng], 11)
+                }
+                // districtSelected(event, sortData)
+                setMarker()
+            })
 
 
-            // 選type,產生表格
-            document.querySelector('#type').addEventListener('change', function () {
-                typeSelected(event, sortData)
+            // 選type
+            typeSelect.addEventListener('change', function () {
+                // typeSelected(event, sortData)
+                typeValue = typeSelect.selectedOptions[0].value
+                if (districtValue != '' || typeValue != '') {
+                    search.disabled = false
+                }
+                if (districtValue == '' && typeValue == '') {
+                    search.disabled = true
+                }
+
+            })
+
+            search.addEventListener('click', function () {
+                districtValue = distSelect.selectedOptions[0].value
+                typeValue = typeSelect.selectedOptions[0].value
+
+                let goalData
+                if (districtValue != '' && typeValue != '') {
+                    goalData = sortData[districtValue].filter(x => x.type == typeValue)
+                    // console.log(goalData)
+                    createTable(theadThArr, goalData)
+                    conditionMarker(goalData)
+                } else if (districtValue != '' && typeValue == '') {
+                    goalData = sortData[districtValue]
+                    // console.log(goalData)
+                    createTable(theadThArr, goalData)
+                    conditionMarker(goalData)
+                } else if (districtValue == '' && typeValue != '') {
+                    goalData = Object.keys(sortData).map(x => sortData[x].filter(y => y.type == typeValue))
+                    console.log(goalData)
+                    outcome.innerHTML = ""
+                    table = document.createElement('table')
+                    thead = createThead(theadThArr)
+                    tbody = createTbody2(goalData)
+
+                    table.append(thead, tbody)
+
+                    outcome.appendChild(table)
+
+                    table.className = "table table-bordered table-striped"
+                }
+
             })
 
 
@@ -94,9 +144,9 @@ Array.prototype.groupBy = function (prop) {
     }, {})
 }
 
-function setSelectOpt(optContentArr, selector) {
+function setSelectOpt(optContentArr, selector, text) {
     const orgOpt = document.createElement('option')
-    orgOpt.innerText = '請選擇'
+    orgOpt.innerText = `----請選擇${text}----`
     orgOpt.value = ''
     selector.appendChild(orgOpt)
     optContentArr
@@ -124,76 +174,132 @@ function setMarker() {
     map.addLayer(markers)
 }
 
-function districtSelected(event, groupObj) {
-    let selectDistrict = groupObj[event.target.value]
-    // console.log(selectDistrict)
-    createTable(selectDistrict)
 
-    return selectDistrict
-}
 
-function typeSelected(event, groupObj) {
-    let result = []
-    Object.keys(groupObj).forEach(x => {
-        let data = groupObj[x]
-        let filterarr = data.filter(y => y.type == event.target.value)
-        result = result.concat(filterarr)
+
+
+function conditionMarker(dataArr) {
+    var redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/img/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    })
+    dataArr.forEach(x =>{
+        L.marker([x.lat, x.lng], { icon: redIcon }).addTo(map)
     })
 
-    createTable(result)
 }
 
-function createTable(inputInfo) {
-    document.querySelector('.info .col-12').innerHTML = ''
-    let table = document.createElement('table')
-    table.classList.add('table', 'table-bordered', 'table-striped', 'text-center', 'align-middle')
 
-    // tbody
-    let tbody = document.createElement('tobdy')
-    let theadTr = document.createElement('tr')
-    theadThArr.forEach(item => {
+
+
+function createThead(titles) {
+    let thead = document.createElement('thead')
+    let tr = document.createElement('tr')
+
+    titles.forEach(title => {
         let th = document.createElement('th')
-        th.innerText = item
-        theadTr.appendChild(th)
-    })
-    tbody.appendChild(theadTr)
+        th.innerText = title
 
-    inputInfo.forEach(organization => {
+        tr.append(th)
+    });
+    thead.append(tr)
+
+    //debugger;
+    return thead
+}
+
+function createTbody(rowsArray) {
+    let tbody = document.createElement('tbody')
+    rowsArray.forEach(row => {
         let tr = document.createElement('tr')
-        // console.log(organization)
-        Object.keys(organization).forEach((y, index) => {
-            // console.log(y)
-            if (index < 5) {
-                let td = document.createElement('td')
-                switch (index) {
-                    case 0:
-                        td.innerText = organization['name'];
-                        break;
-                    case 1:
-                        td.innerText = organization['address'];
-                        break;
-                    case 2:
-                        td.innerText = organization['contact'];
-                        break;
-                    case 3:
-                        td.innerHTML = organization['type'];
-                        break;
-                    case 4:
-                        td.innerText = organization['descrip'].replaceAll('"', '')
-                        break;
-                    default:
-                        break;
-                }
-                tr.appendChild(td)
+        for (let i = 0; i < 5; i++) {
+            let td = document.createElement('td')
+            switch (i) {
+                case 0:
+                    td.innerText = row.name;
+                    break;
+                case 1:
+                    td.innerText = row.address;
+                    break;
+                case 2:
+                    td.innerText = row.contact;
+                    break;
+                case 3:
+                    td.innerHTML = row.type;
+                    break;
+                case 4:
+                    td.innerText = row.descrip.replaceAll('"', '')
+                    break;
+                default:
+                    break;
             }
-        })
-        tbody.appendChild(tr)
+            tr.append(td)
+        }
+        tbody.append(tr)
     })
-    table.append(tbody)
+    return tbody
+}
 
 
-    document.querySelector('.info .col-12').append(table)
+function createTable(titles, rowsArray) {
+    //Create a table dynamically
+    outcome.innerHTML = ""
+    table = document.createElement('table')
+    thead = createThead(titles)
+    tbody = createTbody(rowsArray)
 
+    table.append(thead, tbody)
+
+    outcome.appendChild(table)
+
+    table.className = "table table-bordered table-striped"
+}
+
+
+function createTbody2(inputInfo) {
+    let tbody = document.createElement('tbody')
+    inputInfo.forEach((row, index) => {
+        if (row.length == 0) {
+            return
+        } else {
+            inputInfo[index].forEach((column) => {
+                tr = document.createElement('tr')
+                for (let i = 0; i < 5; i++) {
+                    let td = document.createElement('td')
+                    switch (i) {
+                        case 0:
+                            td.innerText = column.name;
+                            tr.append(td)
+                            break;
+                        case 1:
+                            td.innerText = column.address;
+                            tr.append(td)
+                            break;
+                        case 2:
+                            td.innerText = column.contact;
+                            tr.append(td)
+                            break;
+                        case 3:
+                            td.innerHTML = column.type;
+                            tr.append(td)
+                            break;
+                        case 4:
+                            td.innerText = column.descrip.replaceAll('"', '')
+                            tr.append(td)
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            })
+        }
+        tbody.append(tr)
+    })
+    return tbody
 }
 
 

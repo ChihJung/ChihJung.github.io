@@ -36,26 +36,27 @@
     <h1 class="text-center py-3">台南市老人福利資源點</h1>
     <div class="container">
         <div class="search">
-            <div class="row py-5">
+            <div class="row py-5 m-auto">
                 <div class="col-2"></div>
                 <div class="col-2 d-flex flex-column" id="user-selector">
-                    <label for="district">行政區
-                        <select id="district" class="form-select">
+                    <label for="district" class="mb-5">行政區
+                        <select id="district" class="form-select mt-1">
                             <!-- <option value=""></option> -->
                         </select>
                     </label>
-                    <label for="type">服務類型
-                        <select id="type" class="form-select">
+                    <label for="type" class="mb-5">服務類型
+                        <select id="type" class="form-select mt-1">
                             <!-- <option value=""></option> -->
                         </select>
                     </label>
+                    <input type="submit" value="查詢" disabled>
                 </div>
                 <div class="col-6" id="map"></div>
             </div>
         </div>
         <div class="info">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 outcome">
                     <!-- <table class="table table-bordered table-striped text-center">
                         <thead>
                             <tr>
