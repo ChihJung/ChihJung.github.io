@@ -22,6 +22,10 @@ const distSelect = document.querySelector('#district')
 const typeSelect = document.querySelector('#type')
 const search = document.querySelector('input')
 const outcome = document.querySelector('.outcome')
+const mybutton = document.getElementById("backToTopBtn")
+
+
+
 
 
 // window.onload
@@ -50,13 +54,11 @@ window.onload = function () {
 
             // 選單1-district
             let districts = Object.keys(sortData)
-            // console.log(districts)
             setSelectOpt(districts, distSelect, '區域')
 
 
             // 選單2-type(
             let types = Object.keys(orgData.groupBy('u'))
-            // console.log(types)
             setSelectOpt(types, typeSelect, '類型')
 
             // 選區
@@ -71,19 +73,16 @@ window.onload = function () {
                 if (districtValue == '' && typeValue == '') {
                     search.disabled = true
                 }
-                // console.log(this.value)
                 if (this.value != '') {
                     let countrys = sortData[this.value]
                     map.setView([countrys[0].lat, countrys[0].lng], 11)
                 }
-                // districtSelected(event, sortData)
                 setMarker()
             })
 
 
             // 選type
             typeSelect.addEventListener('change', function () {
-                // typeSelected(event, sortData)
                 typeValue = typeSelect.selectedOptions[0].value
                 if (districtValue != '' || typeValue != '') {
                     search.disabled = false
@@ -95,6 +94,8 @@ window.onload = function () {
             })
 
             search.addEventListener('click', function () {
+                map.removeLayer(markers)
+
                 districtValue = distSelect.selectedOptions[0].value
                 typeValue = typeSelect.selectedOptions[0].value
 
@@ -123,7 +124,7 @@ window.onload = function () {
                     table.className = "table table-bordered table-striped"
 
                     // conditionMarker(orgData.filter(x => x.u == typeValue))
-                    removeLastCondMarker()
+                    removeLastSetting()
 
                     let redIcon = new L.Icon({
                         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
@@ -143,6 +144,21 @@ window.onload = function () {
                             <h5>${item.name}</h5>
                             <p>服務內容:${item.content}</p>
                         `).addTo(map)
+                        mark.on('mouseover', function (e) {
+                            this.openPopup()
+                        })
+                        mark.on('mouseout', function (e) {
+                            this.closePopup()
+                        })
+                        mark.addEventListener('click', function () {
+                            if (choseMark != null) {
+                                document.querySelector(`#${choseMark}`).style.backgroundColor = 'unset'
+                                // debugger
+                            }
+                            $('html,body').animate({ scrollTop: $(`#${x.name}`).offset().top - 8 }, 200)
+                            document.querySelector(`#${x.name}`).style.backgroundColor = '#ceefe4'
+                            choseMark = x.name
+                        })
                         marks.push(mark)
                     })
                 }
@@ -156,6 +172,12 @@ window.onload = function () {
         })
 
 }
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+    scrollFunction()
+}
+
 
 // function
 Array.prototype.groupBy = function (prop) {
@@ -184,7 +206,7 @@ function setSelectOpt(optContentArr, selector, text) {
 function setMarker() {
     Object.keys(sortData).forEach(x => {
         let marker
-        sortData[x].forEach(y => {
+        sortData[x].forEach((y, index) => {
             marker = L.marker([y.lat, y.lng])
             marker.bindPopup(`
                 <h5>${y.name}</h5>
@@ -200,7 +222,9 @@ function setMarker() {
 
 
 function conditionMarker(dataArr) {
+
     removeLastSetting()
+
     let redIcon = new L.Icon({
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -209,20 +233,28 @@ function conditionMarker(dataArr) {
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
     })
-    
+
     dataArr.forEach(x => {
         let mark
         mark = L.marker([x.lat, x.lng], { icon: redIcon }).addTo(map)
         console.log(mark)
+
         mark.bindPopup(`
                 <h5>${x.name}</h5>
                 <p>服務內容:${x.descrip}</p>
             `).addTo(map)
-        mark.addEventListener('click',function() {
-            if(choseMark != null || choseMark != undefined){
+        mark.on('mouseover', function (e) {
+            this.openPopup()
+        })
+        mark.on('mouseout', function (e) {
+            this.closePopup()
+        })
+        mark.addEventListener('click', function () {
+            if (choseMark != null) {
                 document.querySelector(`#${choseMark}`).style.backgroundColor = 'unset'
+                // debugger
             }
-            $('html,body').animate({ scrollTop: $(`#${x.name}`).offset().top - 8 }, 500)
+            $('html,body').animate({ scrollTop: $(`#${x.name}`).offset().top - 8 }, 200)
             document.querySelector(`#${x.name}`).style.backgroundColor = '#ceefe4'
             choseMark = x.name
         })
@@ -231,12 +263,11 @@ function conditionMarker(dataArr) {
 
 }
 
-function removeLastSetting(){
-    if(marks != undefined){
-        marks.forEach(mark =>{
+function removeLastSetting() {
+    if (marks != undefined || marks != null) {
+        marks.forEach(mark => {
             map.removeLayer(mark)
         })
-        marks = []
     }
 }
 
@@ -263,7 +294,6 @@ function createThead(titles) {
 function createTbody(rowsArray) {
     let tbody = document.createElement('tbody')
     rowsArray.forEach(row => {
-        console.log(row)
         let tr = document.createElement('tr')
         tr.setAttribute('id', row.name)
         for (let i = 0; i < 5; i++) {
@@ -318,7 +348,7 @@ function createTbody2(inputInfo) {
         } else {
             inputInfo[index].forEach((column) => {
                 let tr = document.createElement('tr')
-                tr.setAttribute('id', column.name)
+                tr.setAttribute('id', column.id)
                 for (let i = 0; i < 5; i++) {
                     let td = document.createElement('td')
                     switch (i) {
@@ -354,4 +384,18 @@ function createTbody2(inputInfo) {
 }
 
 
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 
