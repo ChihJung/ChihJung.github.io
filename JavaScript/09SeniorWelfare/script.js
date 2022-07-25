@@ -1,13 +1,13 @@
 // org website     https://data.gov.tw/dataset/126517
 // data            http://tnsmap.tainan.gov.tw/api/list.aspx?org=20130118171933
 
-// 23.9666584,119.644869,8z
-
 // 宣告
 let orgData
 let sortData
 let sortType
 let markers = L.markerClusterGroup()
+let marks = []
+let choseMark
 const theadThArr = ['單位', '地址', '電話', '服務類型', '服務內容']
 var map = L.map('map').setView([22.9970861, 120.2129832,], 9)
 
@@ -108,20 +108,43 @@ window.onload = function () {
                     goalData = sortData[districtValue]
                     // console.log(goalData)
                     createTable(theadThArr, goalData)
-                    conditionMarker(goalData)
+                    onditionMarker(goalData)
                 } else if (districtValue == '' && typeValue != '') {
                     goalData = Object.keys(sortData).map(x => sortData[x].filter(y => y.type == typeValue))
-                    console.log(goalData)
+                    // console.log(goalData)
+
+                    // createTable
                     outcome.innerHTML = ""
                     table = document.createElement('table')
                     thead = createThead(theadThArr)
                     tbody = createTbody2(goalData)
-
                     table.append(thead, tbody)
-
                     outcome.appendChild(table)
-
                     table.className = "table table-bordered table-striped"
+
+                    // conditionMarker(orgData.filter(x => x.u == typeValue))
+                    removeLastCondMarker()
+
+                    let redIcon = new L.Icon({
+                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
+                    })
+
+                    let data = orgData.filter(x => x.u == typeValue)
+                    console.log(data)
+                    data.forEach(item => {
+                        let mark
+                        mark = L.marker([item.y, item.x], { icon: redIcon }).addTo(map)
+                        mark.bindPopup(`
+                            <h5>${item.name}</h5>
+                            <p>服務內容:${item.content}</p>
+                        `).addTo(map)
+                        marks.push(mark)
+                    })
                 }
 
             })
@@ -176,27 +199,52 @@ function setMarker() {
 
 
 
-
-
 function conditionMarker(dataArr) {
-    var redIcon = new L.Icon({
+    removeLastSetting()
+    let redIcon = new L.Icon({
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/img/marker-shadow.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
     })
-    dataArr.forEach(x =>{
-        L.marker([x.lat, x.lng], { icon: redIcon }).addTo(map)
+    
+    dataArr.forEach(x => {
+        let mark
+        mark = L.marker([x.lat, x.lng], { icon: redIcon }).addTo(map)
+        console.log(mark)
+        mark.bindPopup(`
+                <h5>${x.name}</h5>
+                <p>服務內容:${x.descrip}</p>
+            `).addTo(map)
+        mark.addEventListener('click',function() {
+            if(choseMark != null || choseMark != undefined){
+                document.querySelector(`#${choseMark}`).style.backgroundColor = 'unset'
+            }
+            $('html,body').animate({ scrollTop: $(`#${x.name}`).offset().top - 8 }, 500)
+            document.querySelector(`#${x.name}`).style.backgroundColor = '#ceefe4'
+            choseMark = x.name
+        })
+        marks.push(mark)
     })
 
+}
+
+function removeLastSetting(){
+    if(marks != undefined){
+        marks.forEach(mark =>{
+            map.removeLayer(mark)
+        })
+        marks = []
+    }
 }
 
 
 
 
 function createThead(titles) {
+
     let thead = document.createElement('thead')
     let tr = document.createElement('tr')
 
@@ -215,7 +263,9 @@ function createThead(titles) {
 function createTbody(rowsArray) {
     let tbody = document.createElement('tbody')
     rowsArray.forEach(row => {
+        console.log(row)
         let tr = document.createElement('tr')
+        tr.setAttribute('id', row.name)
         for (let i = 0; i < 5; i++) {
             let td = document.createElement('td')
             switch (i) {
@@ -267,7 +317,8 @@ function createTbody2(inputInfo) {
             return
         } else {
             inputInfo[index].forEach((column) => {
-                tr = document.createElement('tr')
+                let tr = document.createElement('tr')
+                tr.setAttribute('id', column.name)
                 for (let i = 0; i < 5; i++) {
                     let td = document.createElement('td')
                     switch (i) {
@@ -295,9 +346,9 @@ function createTbody2(inputInfo) {
                             break;
                     }
                 }
+                tbody.append(tr)
             })
         }
-        tbody.append(tr)
     })
     return tbody
 }
