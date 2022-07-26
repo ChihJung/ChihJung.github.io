@@ -237,7 +237,7 @@ function conditionMarker(dataArr) {
     dataArr.forEach(x => {
         let mark
         mark = L.marker([x.lat, x.lng], { icon: redIcon }).addTo(map)
-        console.log(mark)
+        // console.log(mark)
 
         mark.bindPopup(`
                 <h5>${x.name}</h5>

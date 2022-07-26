@@ -101,7 +101,6 @@ function initCalendar() {
 
                     let todoList = JSON.parse(localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
 
-                    debugger
                     todoList.sort((a, b) => {return a.eventTime.localeCompare(b.eventTime)})
 
                     todoList.forEach((e) => {
@@ -135,18 +134,12 @@ function initCalendar() {
                             let date = (event.target.getAttribute('info').split('/'))[0]
                             let title = (event.target.getAttribute('info').split('/'))[1]
                             let time = (event.target.getAttribute('info').split('/'))[2]
-                            // console.log(date)
-                            // console.log(title)
-                            // console.log(time)
-                            // console.log(JSON.parse(localStorage.getItem(date)))
-                            let todo = JSON.parse(localStorage.getItem(date))
+                            let todo = JSON.parse(localStorage.getItem(date)).filter(e => e.eventTitle == title && e.eventTime == time)
                             console.log(todo)
                             inputAll[0].value = title
                             inputAll[2].value = time
-                            inputAll[3].value == undefined ? '' : todo.location
-                            inputAll[4].value = todo.color
-                            console.log(todo.location)
-                            console.log(todo.color)
+                            inputAll[3].value == undefined ? '' : todo[0].location
+                            inputAll[4].value = todo[0].color
                             
                         })
 
