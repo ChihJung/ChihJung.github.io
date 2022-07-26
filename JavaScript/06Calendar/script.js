@@ -197,33 +197,11 @@ function goforward() {
     initCalendar()
 }
 
-// function clickDay() {
-//     // click = inputdate
-//     // console.log(click)
-//     // dynamicDate = `${year}-${(month + 1).toString().padStart(2, '0')}-${event.target.innerText.toString().padStart(2, '0')}`
-//     // inputAll[1].value = `${year}-${(month + 1).toString().padStart(2, '0')}-${event.target.innerText.toString().padStart(2, '0')}`
-//     event.target.setAttribute('data-id', `${dynamicDate}`)
-//     // let dayWithEvent = eventArr.find(x => x.eventDate === inputdate)
-//     let dayWithEvent = localKey.find(x => x.id === dynamicDate)
-//     if (dayWithEvent != undefined && withEventCounter == 0) {
-//         console.log('event has exist')
-//         deleteBtn.classList.add('already')
-//         deleteBtn.disabled = false
-//         deleteBtn.addEventListener('click', deleteEvent)
-//         withEventCounter++
-//     } else {
-//         console.log('dont\'t have event')
-//     }
-
-// }
 
 function clearInput() {
     inputAll.forEach((i, index) => {
         if (index != inputAll.length - 1) {
             i.value = ''
-        }
-        else {
-            i.value = '#000000'
         }
     })
     let option = document.querySelector('option')
@@ -283,31 +261,4 @@ function deleteEvent() {
     eventArr = eventArr.filter(x => x.eventDate !== click && x.eventTitle != text)
     localStorage.setItem('events', JSON.stringify(eventArr))
     closeModal()
-}
-
-function chosenEvent(event) {
-    let data = event.target.dataset.id
-    let text = event.target.innerText
-    let dayWithEvent = JSON.stringify(eventArr.filter(x => x.eventDate === data && text === x.eventTitle))
-    let eventStr = dayWithEvent.split('","')
-    console.log(eventStr)
-
-    let arr = []
-    eventStr.forEach(x => {
-        console.log(x)
-        x = x.split('":"')
-        arr.push(x[1])
-    })
-
-    // 帶入該筆資料
-    if (arr[1] == click) {
-        inputAll.forEach((x, index) => {
-            if (index != inputAll.length - 1) {
-                x.value = arr[index]
-            } else {
-                x.value = arr[index + 1]
-            }
-        })
-    }
-    return text
 }

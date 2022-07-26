@@ -109,7 +109,7 @@ window.onload = function () {
                     goalData = sortData[districtValue]
                     // console.log(goalData)
                     createTable(theadThArr, goalData)
-                    onditionMarker(goalData)
+                    conditionMarker(goalData)
                 } else if (districtValue == '' && typeValue != '') {
                     goalData = Object.keys(sortData).map(x => sortData[x].filter(y => y.type == typeValue))
                     // console.log(goalData)
@@ -136,7 +136,7 @@ window.onload = function () {
                     })
 
                     let data = orgData.filter(x => x.u == typeValue)
-                    console.log(data)
+                    // console.log(data)
                     data.forEach(item => {
                         let mark
                         mark = L.marker([item.y, item.x], { icon: redIcon }).addTo(map)
@@ -151,7 +151,7 @@ window.onload = function () {
                             this.closePopup()
                         })
                         mark.addEventListener('click', function () {
-                            if (choseMark != null) {
+                            if ((choseMark != null || choseMark != undefined) && document.querySelector(`#${choseMark}`) != null) {
                                 document.querySelector(`#${choseMark}`).style.backgroundColor = 'unset'
                                 // debugger
                             }
@@ -250,8 +250,9 @@ function conditionMarker(dataArr) {
             this.closePopup()
         })
         mark.addEventListener('click', function () {
-            if (choseMark != null) {
+            if ((choseMark != null || choseMark != undefined) && document.querySelector(`#${choseMark}`) != null) {
                 document.querySelector(`#${choseMark}`).style.backgroundColor = 'unset'
+
                 // debugger
             }
             $('html,body').animate({ scrollTop: $(`#${x.name}`).offset().top - 8 }, 200)
@@ -348,7 +349,7 @@ function createTbody2(inputInfo) {
         } else {
             inputInfo[index].forEach((column) => {
                 let tr = document.createElement('tr')
-                tr.setAttribute('id', column.id)
+                tr.setAttribute('id', column.name)
                 for (let i = 0; i < 5; i++) {
                     let td = document.createElement('td')
                     switch (i) {
