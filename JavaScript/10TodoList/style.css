@@ -1,0 +1,22 @@
+.box{
+    width: 380px;
+    border: 5px solid darkgray;
+    margin: auto;
+    padding: 20px;
+}
+.input-group-text{
+    background-color: unset;
+    font-size: 1.4rem;
+    border: unset;
+    border-radius: unset;
+}
+#todo-group .form-control,
+#todo-group button{
+    border: unset;
+    border-radius: unset;
+}
+
+.input-group > *{
+    border-radius: unset;
+}
+

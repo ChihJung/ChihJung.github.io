@@ -5,137 +5,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- reset + css -->
+    <!-- reset-->
     <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css">
     <!-- google font -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/f339f30122.js" crossorigin="anonymous"></script>
     <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="./style.css">
+
     <title>Calendar</title>
 </head>
 
 <body>
-
-    <div class="box">
-        <div id="header">
-            <div id="month-display"></div>
-            <div id="btns">
-                <button type="button" id="back"><i class="fa-solid fa-caret-left"></i></button>
-                <button type="button" id="next"><i class="fa-solid fa-caret-right"></i></button>
+    <div class="wrap">
+        <div class="row-flex">
+            <div class="side-bar">
+                <div class="post">
+                    <p class="today-date">
+                        FEB
+                        <span>7</span>
+                    </p>
+                </div>
+                <div class="fn-btns">
+                    <button type="button" id="back"><i class="fa-solid fa-caret-left"></i></button>
+                    <button type="button" id="monthChooser" onclick="chooseMonth()"><i
+                            class="fa-solid fa-calendar-days"></i></button>
+                    <button type="button" id="next"><i class="fa-solid fa-caret-right"></i></button>
+                </div>
+                <div class="clock">
+                    <div class="hand hour" data-hour-hand></div>
+                    <div class="hand minute" data-minute-hand></div>
+                </div>
+                <div class="memo"></div>
+            </div>
+            <div class="box">
+                <div id="header">
+                    <div id="month-display"></div>
+                    <!-- <div id="btns">
+                        <button type="button" id="back"><i class="fa-solid fa-caret-left"></i></button>
+                        <button type="button" id="next"><i class="fa-solid fa-caret-right"></i></button>
+                    </div> -->
+                </div>
+                <div id="weekdays">
+                    <div class="weekdays-item">SUN</div>
+                    <div class="weekdays-item">MON</div>
+                    <div class="weekdays-item">TUE</div>
+                    <div class="weekdays-item">WED</div>
+                    <div class="weekdays-item">THU</div>
+                    <div class="weekdays-item">FRI</div>
+                    <div class="weekdays-item">SAT</div>
+                </div>
+                <div id="calendar"></div>
             </div>
         </div>
-        <div id="weekdays">
-            <div class="weekdays-item">SUN</div>
-            <div class="weekdays-item">MON</div>
-            <div class="weekdays-item">TUE</div>
-            <div class="weekdays-item">WED</div>
-            <div class="weekdays-item">THU</div>
-            <div class="weekdays-item">FRI</div>
-            <div class="weekdays-item">SAT</div>
-        </div>
-        <div id="calendar"></div>
     </div>
 
     <!-- --------------------- -->
     <!-- --------- modal --------->
-    <!-- <div class="modal fade newEventModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New event</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-1">
-                            <label for="input-title" class="col-form-label"></label>
-                            <input type="text" class="form-control" id="input-title" onfocus="this.placeholder=''" onblur="this.placeholder='Title'"autofocus required>
-                        </div>
-                        <div class="mb-1">
-                            <label for="event-date" class="col-form-label">Date:</label>
-                            <input type="date" class="form-control" id="event-date" required>
-                        </div>
-                        <div class="mb-1">
-                            <label for="event-time" class="col-form-label">Time:</label>
-                            <input type="time" class="form-control" id="event-time" required></input>
-                        </div>
-                        <div class="mb-1">
-                            <label for="location" class="col-form-label">Location:</label>
-                            <input type="text" class="form-control" id="location"></input>
-                        </div>
-                        <div class="mb-1 d-inline">
-                            <label for="tag-classify" class="col-form-label">Type:
-                                <select id="typeSelector">
-                                    <option selected></option>
-                                    <option value="Work">Work</option>
-                                    <option value="School">School</option>
-                                    <option value="Study">Study</option>
-                                    <option value="Exercise">Exercise</option>
-                                    <option value="Dating">Dating</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="mb-1 d-inline">
-                            <label for="markedColor" class="col-form-label">
-                                Color:
-                                <input type="color" name="" id="markedColor">
-                            </label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button id="deleteBtn">DELETE</button>
-                    <button id="saveBtn">SAVE</button>
-                    <button id="cancelBtn">CANCEL</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 
-    <div class="modal fade newEventModal" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-        tabindex="-1">
+    <div class="modal fade newEventModal" id="exampleModalToggle" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title first-modal-title" id="exampleModalToggleLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body first-modal-body">
+                <div class="modal-body first-modal-body" style="overflow-y: scroll;
+                overflow-x: hidden; max-height: 200px;">
                 </div>
                 <div class="modal-footer">
-                    <button class="btn" id="editBtn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">ADD</button>
+                    <button class="btn" id="addBtn" data-bs-target="#exampleModalToggle2"
+                        data-bs-toggle="modal">ADD</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade newEventModal" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-        tabindex="-1">
+    <div class="modal fade newEventModal" id="exampleModalToggle2" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">New event</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="clearInput()"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-1">
-                            <label for="input-title" class="col-form-label"></label>
-                            <input type="text" class="form-control" id="input-title" onfocus="this.placeholder=''" onblur="this.placeholder='Title'"autofocus required>
+                            <label for="input-title" class="col-form-label">Title</label>
+                            <input type="text" class="form-control" id="input-title" onfocus="this.placeholder=''"
+                                onblur="this.placeholder='Title'" autofocus required>
                         </div>
                         <div class="mb-1">
+                            <!-- <label for="event-date" class="col-form-label">Date:</label>
+                            <input type="date" class="form-control" id="event-date" required> -->
                             <label for="event-date" class="col-form-label">Date:</label>
-                            <input type="date" class="form-control" id="event-date" required>
-                        </div>
-                        <div class="mb-1">
-                            <label for="event-time" class="col-form-label">Time:</label>
-                            <input type="time" class="form-control" id="event-time" min="01:30" max="05:30"step="1200" required></input>
+                            <input type="datetime-local" class="form-control" id="event-dateNtime" required>
                         </div>
                         <div class="mb-1">
                             <label for="location" class="col-form-label">Location:</label>
@@ -162,13 +135,12 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="saveBtn" data-bs-dismiss="modal" aria-label="Close">SAVE</button>
-                    <!-- <button id="cancelBtn" data-bs-dismiss="modal" aria-label="Close">CANCEL</button> -->
+                    <button id="deleteBtn" data-bs-dismiss="modal" aria-label="Close">DELETE</button>
+                    <button id="saveBtn" data-bs-dismiss="modal" aria-label="Close" disabled>SAVE</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
 
 
     <script src="./script.js"></script>
@@ -179,6 +151,9 @@
         crossorigin="anonymous"></script>
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- flatpicker -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </body>
 
 </html>
