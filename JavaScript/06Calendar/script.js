@@ -2,6 +2,7 @@
 const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 let click, dateStr, dynamicDate
 let monthCounter = 0
+let memoArray = []
 
 const today = new Date()
 
@@ -14,23 +15,61 @@ let month = today.getMonth()
 const hourHand = document.querySelector('[data-hour-hand]')
 const minuteHand = document.querySelector('[data-minute-hand]')
 const monthDisplay = document.querySelector('#month-display')
+const post = document.querySelector('.post')
 const calendar = document.querySelector('#calendar')
+const calMonth = document.querySelector('.today-date')
+const calDate = document.querySelector('.today-date>span')
 const backBtn = document.getElementById('back')
 const nextBtn = document.getElementById('next')
-const monthInput = document.querySelector('#monthChooser input')
+const memoList = document.querySelector('#memo-list')
+const memoTitles = document.querySelectorAll('#memoTitle')
 const deleteBtn = document.getElementById('deleteBtn')
 const saveBtn = document.getElementById('saveBtn')
-const inputAll = document.querySelectorAll('input')
+const inputAll = document.querySelectorAll('input[class="form-control"]')
 
 // window.onload
 window.onload = function () {
+
+    // today date
+    calMonth.innerHTML = `${months[month].substring(0, 3).toUpperCase()}<span>${day}</span>`
+    post.addEventListener('click', initCalendar.bind(this, year, month))
+
+    // choose Month
+    document.querySelector('#choser').addEventListener('change', () => {
+        let getValue = document.querySelector('#choser').value
+        let chooseYear = getValue.split('-')[0]
+        let chooseMonth
+        if (parseInt(getValue.split('-')[1]) < 10) {
+            chooseMonth = parseInt(getValue.split('-')[1].charAt(1)) - 1
+        } else {
+            chooseMonth = parseInt(getValue.split('-')[1]) - 1
+        }
+        initCalendar(chooseYear, chooseMonth)
+    })
+
+
     // clock
     setClock()
     setInterval(setClock, 1000)
 
 
+    // memo
+    console.log(memoTitles)
+    memoTitles.forEach((eachTitle, index) => {
+        eachTitle.addEventListener('change', () => {
+            event.target.setAttribute('disabled', '')
+            if (localStorage.getItem('memoList') != null) {
+                memoArray = JSON.parse(localStorage.getItem('memoList'))
+            }
+            memoArray.push(eachTitle.value)
+            localStorage.setItem('memoList', JSON.stringify(memoArray))
+            setMemo()
+        })
+        eachTitle.addEventListener('dbclick', () =>{})
+    })
+
     // calendar
-    initCalendar()
+    initCalendar(year, month)
     backBtn.addEventListener('click', goback)
     nextBtn.addEventListener('click', goforward)
 
@@ -45,19 +84,19 @@ window.onload = function () {
 
 
 // function
-function initCalendar() {
-    monthString = months[month]
-    document.querySelector('#month-display').innerHTML = `${year}  ${monthString}`
+function initCalendar(inputYear, inputMonth) {
+    monthString = months[inputMonth]
+    document.querySelector('#month-display').innerHTML = `${inputYear}  ${monthString}`
 
     // 這個月第一天禮拜幾
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    let firstDayWeekday = new Date(year, month, 1)
+    let firstDayWeekday = new Date(inputYear, inputMonth, 1)
     const options = { weekday: 'long' }
     firstDayWeekday = new Intl.DateTimeFormat('en-US', options).format(firstDayWeekday)
     let previousDays = weekdays.indexOf(firstDayWeekday)
 
     // 這個月有幾天
-    let daysInMonth = new Date(year, month + 1, 0).getDate()
+    let daysInMonth = new Date(inputYear, inputMonth + 1, 0).getDate()
 
     calendar.innerText = ''
     for (let i = 1; i <= daysInMonth + previousDays; i++) {
@@ -69,11 +108,11 @@ function initCalendar() {
                 "data-bs-toggle": "modal",
                 "data-bs-target": "#exampleModalToggle",
                 "role": "button",
-                "date": `${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`
+                "date": `${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`
             })
 
-            if (localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
-                let todoList = JSON.parse(localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
+            if (localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
+                let todoList = JSON.parse(localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
                 // console.log(todoList)
 
                 todoList.sort((a, b) => { return a.eventTime.localeCompare(b.eventTime) })
@@ -108,10 +147,10 @@ function initCalendar() {
                 let mBody = document.querySelector('.first-modal-body')
                 mBody.innerHTML = ''
 
-                if (localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
+                if (localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
 
 
-                    let todoList = JSON.parse(localStorage.getItem(`${year}-${(month + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
+                    let todoList = JSON.parse(localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
 
                     todoList.sort((a, b) => { return a.eventTime.localeCompare(b.eventTime) })
 
@@ -142,12 +181,11 @@ function initCalendar() {
 
                         modalEventDiv.addEventListener('click', (event) => {
                             // clearInput()
-                            // console.log(event)
                             let date = (event.target.getAttribute('info').split('/'))[0]
                             let title = (event.target.getAttribute('info').split('/'))[1]
                             let time = (event.target.getAttribute('info').split('/'))[2]
                             let todo = JSON.parse(localStorage.getItem(date)).filter(e => e.eventTitle == title && e.eventTime == time)
-                            // console.log(todo)
+
                             inputAll[0].value = title
                             inputAll[1].value = `${date}T${time}`
                             inputAll[2].value == undefined ? '' : todo[0].location
@@ -174,8 +212,6 @@ function initCalendar() {
                         })
                     })
 
-                    // event.stopPropagation()
-
                 }
 
             })
@@ -183,7 +219,7 @@ function initCalendar() {
 
 
             // 今日 添加'current'class
-            if (i - previousDays == day && monthCounter == 0) {
+            if (i - previousDays == day && inputMonth == today.getMonth()) {
                 square.classList.add('current')
             }
         } else {
@@ -204,7 +240,7 @@ function goback() {
         month = 11
     }
 
-    initCalendar()
+    initCalendar(year, month)
 }
 
 function goforward() {
@@ -215,19 +251,8 @@ function goforward() {
         month = 0
     }
 
-    initCalendar()
+    initCalendar(year, month)
 }
-
-function chooseMonth(){
-    let config = {
-        altInput: true,
-        altFormat: "F j, Y",
-        dateFormat: "Y-m-d",
-    }
-    flatpickr("#monthChoser", config)
-    console.log('hi')
-}
-
 
 function clearInput() {
     inputAll.forEach((i, index) => {
@@ -326,4 +351,14 @@ function setClock() {
 
 function setRotation(element, rotationRatio) {
     element.style.setProperty('--rotation', rotationRatio * 360)
+}
+
+function setMemo() {
+    if (localStorage.getItem('memoList') != null) {
+        let memoItems = JSON.parse(localStorage.getItem('memoList'))
+        memoItems.forEach((item, index) => {
+            let input = document.querySelector(`[title]="${index}"`)
+            input.value = item
+        })
+    }
 }

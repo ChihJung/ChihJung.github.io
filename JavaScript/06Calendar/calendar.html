@@ -28,29 +28,41 @@
             <div class="side-bar">
                 <div class="post">
                     <p class="today-date">
-                        FEB
-                        <span>7</span>
                     </p>
                 </div>
                 <div class="fn-btns">
                     <button type="button" id="back"><i class="fa-solid fa-caret-left"></i></button>
-                    <button type="button" id="monthChooser" onclick="chooseMonth()"><i
-                            class="fa-solid fa-calendar-days"></i></button>
+                    <div id="monthChooser" style="position: relative;">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <input type="month" id="choser">
+                    </div>
                     <button type="button" id="next"><i class="fa-solid fa-caret-right"></i></button>
                 </div>
                 <div class="clock">
                     <div class="hand hour" data-hour-hand></div>
                     <div class="hand minute" data-minute-hand></div>
                 </div>
-                <div class="memo"></div>
+                <div class="memo">
+                    <h3>Memo</h3>
+                    <div id="memo-list">
+                        <input type="text" class="form-control mb-3" id="memoTitle"
+                            aria-label="Text input with checkbox" title="1">
+                        <input type="text" class="form-control mb-3" id="memoTitle"
+                            aria-label="Text input with checkbox" title="2">
+                        <input type="text" class="form-control mb-3" id="memoTitle"
+                            aria-label="Text input with checkbox" title="3">
+                        <input type="text" class="form-control mb-3" id="memoTitle"
+                            aria-label="Text input with checkbox" title="4">
+                        <input type="text" class="form-control mb-3" id="memoTitle"
+                            aria-label="Text input with checkbox" title="5">
+                            <input type="text" class="form-control" id="memoTitle"
+                                aria-label="Text input with checkbox" title="6">
+                    </div>
+                </div>
             </div>
             <div class="box">
                 <div id="header">
                     <div id="month-display"></div>
-                    <!-- <div id="btns">
-                        <button type="button" id="back"><i class="fa-solid fa-caret-left"></i></button>
-                        <button type="button" id="next"><i class="fa-solid fa-caret-right"></i></button>
-                    </div> -->
                 </div>
                 <div id="weekdays">
                     <div class="weekdays-item">SUN</div>
@@ -105,9 +117,7 @@
                                 onblur="this.placeholder='Title'" autofocus required>
                         </div>
                         <div class="mb-1">
-                            <!-- <label for="event-date" class="col-form-label">Date:</label>
-                            <input type="date" class="form-control" id="event-date" required> -->
-                            <label for="event-date" class="col-form-label">Date:</label>
+                            <label for="event-date" class="col-form-label">Time:</label>
                             <input type="datetime-local" class="form-control" id="event-dateNtime" required>
                         </div>
                         <div class="mb-1">
