@@ -42,23 +42,6 @@
                     <div class="hand hour" data-hour-hand></div>
                     <div class="hand minute" data-minute-hand></div>
                 </div>
-                <div class="memo">
-                    <h3>Memo</h3>
-                    <div id="memo-list">
-                        <input type="text" class="form-control mb-3" id="memoTitle"
-                            aria-label="Text input with checkbox" title="1">
-                        <input type="text" class="form-control mb-3" id="memoTitle"
-                            aria-label="Text input with checkbox" title="2">
-                        <input type="text" class="form-control mb-3" id="memoTitle"
-                            aria-label="Text input with checkbox" title="3">
-                        <input type="text" class="form-control mb-3" id="memoTitle"
-                            aria-label="Text input with checkbox" title="4">
-                        <input type="text" class="form-control mb-3" id="memoTitle"
-                            aria-label="Text input with checkbox" title="5">
-                            <input type="text" class="form-control" id="memoTitle"
-                                aria-label="Text input with checkbox" title="6">
-                    </div>
-                </div>
             </div>
             <div class="box">
                 <div id="header">
@@ -80,9 +63,53 @@
 
     <!-- --------------------- -->
     <!-- --------- modal --------->
-
-
+    <!-- 新增行程Modal -->
     <div class="modal fade newEventModal" id="exampleModalToggle" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">新增</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input id="add-date" type="text">
+                    <input id="add-value" type="text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="addToDoItem()">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 編輯Modal -->
+    <div class="modal fade newEventModal" id="exampleModalToggle2" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">編輯</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input id="edit-date" type="text">
+                    <input id="edit-value" type="text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="deleteTodoItem()">刪除</button>
+                    <button type="button" class="btn btn-primary" onclick="editTodoItem()">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div class="modal fade newEventModal" id="exampleModalToggle" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -150,7 +177,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <script src="./script.js"></script>

@@ -5,11 +5,12 @@
 }
 body{
     font-family: 'Fuzzy Bubbles', cursive;
+    background-image: url("./BGimage.png");
+    background-size: cover;
 }
 .wrap {
     width: 1200px;
     margin: auto;
-    background-color: var(--bg-main-color);
 }
 
 .row-flex {
@@ -178,17 +179,6 @@ body{
     width: 4.5px;
     height: 35%;
     background-color: var(--text-color);
-}
-
-.memo{
-    background-color: var(--line-color);
-    padding: 15px 10px;
-    color: var(--text-color);
-    font-weight: 700;
-    text-align: center;
-}
-.memo h3{
-    font-size: 20px;
 }
 
 #todoTitle{

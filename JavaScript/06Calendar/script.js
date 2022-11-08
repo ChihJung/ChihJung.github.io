@@ -21,11 +21,13 @@ const calMonth = document.querySelector('.today-date')
 const calDate = document.querySelector('.today-date>span')
 const backBtn = document.getElementById('back')
 const nextBtn = document.getElementById('next')
-const memoList = document.querySelector('#memo-list')
-const memoTitles = document.querySelectorAll('#memoTitle')
 const deleteBtn = document.getElementById('deleteBtn')
 const saveBtn = document.getElementById('saveBtn')
-const inputAll = document.querySelectorAll('input[class="form-control"]')
+
+const addDateInput = document.querySelector('#add-date')
+const addValueInput = document.querySelector('#add-value')
+const editDateInput = document.querySelector('#edit-date')
+const editValueInput = document.querySelector('#edit-value')
 
 // window.onload
 window.onload = function () {
@@ -53,21 +55,6 @@ window.onload = function () {
     setInterval(setClock, 1000)
 
 
-    // memo
-    console.log(memoTitles)
-    memoTitles.forEach((eachTitle, index) => {
-        eachTitle.addEventListener('change', () => {
-            event.target.setAttribute('disabled', '')
-            if (localStorage.getItem('memoList') != null) {
-                memoArray = JSON.parse(localStorage.getItem('memoList'))
-            }
-            memoArray.push(eachTitle.value)
-            localStorage.setItem('memoList', JSON.stringify(memoArray))
-            setMemo()
-        })
-        eachTitle.addEventListener('dbclick', () =>{})
-    })
-
     // calendar
     initCalendar(year, month)
     backBtn.addEventListener('click', goback)
@@ -75,9 +62,6 @@ window.onload = function () {
 
     // inside Modal
     //saveBtn
-    inputAll[0].addEventListener('input', saveBtnControl)
-    inputAll[1].addEventListener('input', saveBtnControl)
-    saveBtn.addEventListener('click', saveEvent)
 
 
 }
@@ -132,92 +116,92 @@ function initCalendar(inputYear, inputMonth) {
 
                 // first Modal Page-設定Title
                 // second Modal 帶入日期
-                let chosenDate = event.target.getAttribute('date')
-                document.querySelector('.first-modal-title').innerText = `${chosenDate} Schedule`
-                inputAll.forEach((item, index) => {
-                    if (index == 1) {
-                        inputAll[1].value = `${chosenDate}T00:00`
-                    } else {
-                        inputAll[0].value = ''
-                    }
-                })
+                // let chosenDate = event.target.getAttribute('date')
+                // document.querySelector('.first-modal-title').innerText = `${chosenDate} Schedule`
+                // inputAll.forEach((item, index) => {
+                //     if (index == 1) {
+                //         inputAll[1].value = `${chosenDate}T00:00`
+                //     } else {
+                //         inputAll[0].value = ''
+                //     }
+                // })
 
 
 
-                let mBody = document.querySelector('.first-modal-body')
-                mBody.innerHTML = ''
+                // let mBody = document.querySelector('.first-modal-body')
+                // mBody.innerHTML = ''
 
-                if (localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
-
-
-                    let todoList = JSON.parse(localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
-
-                    todoList.sort((a, b) => { return a.eventTime.localeCompare(b.eventTime) })
-
-                    todoList.forEach((e) => {
-                        // event顯示在第一個Modal上
-                        let modalEventDiv = document.createElement('div')
-                        modalEventDiv.classList.add('schedule')
-                        let title = document.createElement('span')
-                        title.innerText = `${e.eventTitle}`
-                        let time = document.createElement('span')
-                        time.innerText = `${e.eventTime}`
-                        title.setAttribute('info', `${e.eventDate}/${e.eventTitle}/${e.eventTime}`)
-                        modalEventDiv.append(title)
-                        time.setAttribute('info', `${e.eventDate}/${e.eventTitle}/${e.eventTime}`)
-                        modalEventDiv.insertBefore(time, title)
-                        mBody.appendChild(modalEventDiv)
-                        modalEventDiv.style.backgroundColor = e.color
-                        modalEventDiv.style.cursor = 'pointer'
-                        modalEventDiv.style.color = '#fffcf0'
-                        modalEventDiv.style.marginBottom = '5px'
-                        $(modalEventDiv).attr({
-                            "data-bs-toggle": "modal",
-                            "data-bs-target": "#exampleModalToggle2",
-                            "role": "button",
-                            "info": `${e.eventDate}/${e.eventTitle}/${e.eventTime}`
-                        })
+                // if (localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`) != null) {
 
 
-                        modalEventDiv.addEventListener('click', (event) => {
-                            // clearInput()
-                            let date = (event.target.getAttribute('info').split('/'))[0]
-                            let title = (event.target.getAttribute('info').split('/'))[1]
-                            let time = (event.target.getAttribute('info').split('/'))[2]
-                            let todo = JSON.parse(localStorage.getItem(date)).filter(e => e.eventTitle == title && e.eventTime == time)
+                //     let todoList = JSON.parse(localStorage.getItem(`${inputYear}-${(inputMonth + 1).toString().padStart(2, '0')}-${(i - previousDays).toString().padStart(2, '0')}`))
 
-                            inputAll[0].value = title
-                            inputAll[1].value = `${date}T${time}`
-                            inputAll[2].value == undefined ? '' : todo[0].location
-                            inputAll[3].value = todo[0].color
+                //     todoList.sort((a, b) => { return a.eventTime.localeCompare(b.eventTime) })
 
-                            deleteBtn.style.display = 'block'
-                            if (inputAll[0].value != '' && inputAll[1].value != '' && todo.find(x => x.eventTitle == inputAll[0].value && `${x.eventDate}T${x.eventTime}` == inputAll[1].value)) {
-                                saveBtn.disabled = false
-                            }
+                //     todoList.forEach((e) => {
+                //         // event顯示在第一個Modal上
+                //         let modalEventDiv = document.createElement('div')
+                //         modalEventDiv.classList.add('schedule')
+                //         let title = document.createElement('span')
+                //         title.innerText = `${e.eventTitle}`
+                //         let time = document.createElement('span')
+                //         time.innerText = `${e.eventTime}`
+                //         title.setAttribute('info', `${e.eventDate}/${e.eventTitle}/${e.eventTime}`)
+                //         modalEventDiv.append(title)
+                //         time.setAttribute('info', `${e.eventDate}/${e.eventTitle}/${e.eventTime}`)
+                //         modalEventDiv.insertBefore(time, title)
+                //         mBody.appendChild(modalEventDiv)
+                //         modalEventDiv.style.backgroundColor = e.color
+                //         modalEventDiv.style.cursor = 'pointer'
+                //         modalEventDiv.style.color = '#fffcf0'
+                //         modalEventDiv.style.marginBottom = '5px'
+                //         $(modalEventDiv).attr({
+                //             "data-bs-toggle": "modal",
+                //             "data-bs-target": "#exampleModalToggle2",
+                //             "role": "button",
+                //             "info": `${e.eventDate}/${e.eventTitle}/${e.eventTime}`
+                //         })
 
 
-                            // deleteBtn
-                            inputAll[0].addEventListener('input', function () {
-                                title = inputAll[0].value
-                                if (title == '') {
-                                    deleteBtn.disabled = true
-                                } else {
-                                    deleteBtn.disabled = false
-                                }
-                            })
-                            deleteBtn.addEventListener('click', function () {
-                                deleteEvent(date)
-                            })
-                        })
-                    })
+                //         modalEventDiv.addEventListener('click', (event) => {
+                //             // clearInput()
+                //             let date = (event.target.getAttribute('info').split('/'))[0]
+                //             let title = (event.target.getAttribute('info').split('/'))[1]
+                //             let time = (event.target.getAttribute('info').split('/'))[2]
+                //             let todo = JSON.parse(localStorage.getItem(date)).filter(e => e.eventTitle == title && e.eventTime == time)
 
-                }
+                //             inputAll[0].value = title
+                //             inputAll[1].value = `${date}T${time}`
+                //             inputAll[2].value == undefined ? '' : todo[0].location
+                //             inputAll[3].value = todo[0].color
 
+                //             deleteBtn.style.display = 'block'
+                //             if (inputAll[0].value != '' && inputAll[1].value != '' && todo.find(x => x.eventTitle == inputAll[0].value && `${x.eventDate}T${x.eventTime}` == inputAll[1].value)) {
+                //                 saveBtn.disabled = false
+                //             }
+
+
+                //             // deleteBtn
+                //             inputAll[0].addEventListener('input', function () {
+                //                 title = inputAll[0].value
+                //                 if (title == '') {
+                //                     deleteBtn.disabled = true
+                //                 } else {
+                //                     deleteBtn.disabled = false
+                //                 }
+                //             })
+                //             deleteBtn.addEventListener('click', function () {
+                //                 deleteEvent(date)
+                //             })
+                //         })
+                //     })
+
+                // }
+                currentIndex = index
+                editDateInput.value = `${year}-${month+1}-${td.childNodes[0].data}`
+                editValueInput.value = item.title
+                event.stopPropagation()
             })
-
-
-
             // 今日 添加'current'class
             if (i - previousDays == day && inputMonth == today.getMonth()) {
                 square.classList.add('current')
@@ -225,11 +209,8 @@ function initCalendar(inputYear, inputMonth) {
         } else {
             square.classList.add('blank')
         }
-
         calendar.append(square)
     }
-
-
 }
 
 function goback() {
@@ -254,91 +235,11 @@ function goforward() {
     initCalendar(year, month)
 }
 
-function clearInput() {
-    inputAll.forEach((i, index) => {
-        if (index != inputAll.length - 1) {
-            i.value = ''
-        } else {
-            i.value = '#000000'
-        }
-    })
-    let option = document.querySelector('option')
-    if (option.value != undefined) {
-        document.getElementById('typeSelector').selectedIndex = 0
-    }
-    deleteBtn.style.display = 'none'
 
-}
 
-function closeModal() {
-    document.querySelector('.newEventModal').style.display = 'none'
-    deleteBtn.style.display = 'none'
 
-    // document.querySelector('.modal-backdrop').style.display = 'none'
 
-    // 清除預填的東西
-    clearInput()
-    initCalendar()
-}
 
-function saveEvent() {
-    // 下拉式選單取值
-    let typeSelector = document.getElementById('typeSelector')
-    let typeVal = typeSelector.options[typeSelector.selectedIndex].value;
-
-    // 取得輸入的內容
-    let date = inputAll[1].value.split('T')[0]
-    let scheduleObj = {
-        eventTitle: inputAll[0].value,
-        eventDate: date,
-        eventTime: inputAll[1].value.split('T')[1],
-        location: inputAll[2].value,
-        type: typeVal,
-        color: inputAll[3].value
-    }
-
-    let scheduleList = []
-    if (localStorage.getItem(date) == null) {
-        scheduleList.push(scheduleObj)
-    } else {
-        scheduleList = JSON.parse(localStorage.getItem(date))
-        let existItem = scheduleList.find(x => x.eventTime == scheduleObj.eventTime)
-        let idx = scheduleList.indexOf(existItem)
-        if (existItem) {
-            scheduleList.splice(idx, 1)
-        }
-        scheduleList.push(scheduleObj)
-
-    }
-    localStorage.setItem(date, JSON.stringify(scheduleList))
-
-    // 存完關閉Modal
-    closeModal()
-    initCalendar()
-
-}
-
-function saveBtnControl() {
-    if (inputAll[0].value != '' && inputAll[1].value != '') {
-        saveBtn.disabled = false
-        saveBtn.classList.add('inputComplete')
-    } else {
-        saveBtn.disabled = true
-        saveBtn.classList.remove('inputComplete')
-    }
-}
-
-function deleteEvent(date) {
-    let delTitle = inputAll[0].value
-    let delTime = inputAll[1].value.split('T')[1]
-    console.log(delTitle)
-    console.log(delTime)
-    // 留下與點選日期不符的
-    let remain = JSON.parse(localStorage.getItem(date)).filter(e => e.eventTitle != delTitle && e.eventTime != delTime)
-    localStorage.setItem(date, JSON.stringify(remain))
-    initCalendar()
-    closeModal()
-}
 
 
 function setClock() {
@@ -353,12 +254,45 @@ function setRotation(element, rotationRatio) {
     element.style.setProperty('--rotation', rotationRatio * 360)
 }
 
-function setMemo() {
-    if (localStorage.getItem('memoList') != null) {
-        let memoItems = JSON.parse(localStorage.getItem('memoList'))
-        memoItems.forEach((item, index) => {
-            let input = document.querySelector(`[title]="${index}"`)
-            input.value = item
-        })
+function addToDoItem(){
+    let date = addDateInput.value
+    let todoItem = addValueInput.value
+
+    let todoObj = {
+        title : todoItem
     }
+
+    let todoList = []
+    if(localStorage.getItem(date) == null){
+        todoList.push(todoObj)
+    }else{
+        todoList = JSON.parse(localStorage.getItem(date))
+        todoList.push(todoObj)
+    }
+
+    localStorage.setItem(date, JSON.stringify(todoList))
+    bootstrap.Modal.getOrCreateInstance(addModal).hide()
+    setCalendar()
+}
+
+function editTodoItem(){
+    let date = editDateInput.value
+    let todoItem = editValueInput.value
+
+    todoList = JSON.parse(localStorage.getItem(date))
+    todoList[currentIndex] = { title : todoItem}
+    localStorage.setItem(date, JSON.stringify(todoList))
+    bootstrap.Modal.getOrCreateInstance(addModal).hide()
+    setCalendar()
+}
+
+function deleteTodoItem(){
+    let date = editDateInput.value
+
+    let todoList = JSON.parse(localStorage.getItem(date))
+    todoList.splice(currentIndex, 1)
+
+    localStorage.setItem(date, JSON.stringify(todoList))
+    bootstrap.Modal.getOrCreateInstance(editModal).hide()
+    setCalendar()
 }
