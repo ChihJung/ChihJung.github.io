@@ -1,0 +1,70 @@
+body{
+    font-family: 'Varela Round', sans-serif;
+    --main-color: rgb(76, 76, 76);
+}
+#app{
+    width: fit-content;
+    margin: auto;
+    padding: 10px;
+    color: var(--main-color);
+}
+
+h1{
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+.input-area{
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+.input-area > input{
+    padding: 8px;
+}
+.todo-item{
+    margin-bottom: 8px;
+}
+.todo-list{
+    font-size: 20px;
+}
+.todo-item > input,
+.todo-item > button{
+    padding: 8px;
+}
+.todo-item > button{
+    border: unset;
+}
+.todo-item > button:hover{
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
+input[type="checkbox"]{
+    width: 25px;
+    height: 25px;
+    accent-color: gray;
+}
+i{
+    color: var(--main-color);
+}
+.noFocusFrame{
+    outline: none;
+}
+input.completed{
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+.sticker a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+}
+.sticker li{
+    padding: 8px 12px;
+    background-color: #eee;
+    border-radius: 20px;
+}
+.sticker li:not(:last-child){
+    margin-right: 8px;
+}
