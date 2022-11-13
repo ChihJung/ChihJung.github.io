@@ -4,20 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=`, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
+        body{
+            font-family: 'Nunito', sans-serif;
+        }
+        .wrap{
+            width: 450px;
+            height: 450px;
+            background-image: url(/images.jpg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        h1{
+            color: #6f686d;
+            font-weight: 600;
+            text-align: center;
+            font-size: 32px;
+        }
+        div{
+            color: #6f686d;
+            font-weight: 600;
+            font-size: 24px;
+        }
         a{
             text-decoration: none;
             display: block;
-            font-size: 20px;
+            font-size: 18px;
+            color: #846c5b;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+        .account{
+            font-size: 14px;
+            color: #6f686d;
+        }
+        .title{
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 5px 12px;
+            margin-bottom: 10px;
+        }
+        .project{
+            margin-bottom: 20px;
+        }
+        .grow{
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-    <a href="./HTML&CSS/tablelab/01table.html">01成功國小課表</a>
-    <a href="./HTML&CSS/google_FrontPage/02Google_FrontPage.html">02Google</a>
-    <a href="./HTML&CSS/Shopee/03_Shopee.html">03Shopee</a>
-    <a href="./HTML&CSS/ShopLine/ShopLine.html">04SHOPLINE</a>
-    <a href="./HTML&CSS/Variegated/Variegated.html">05Variegated</a>
+    <div class="wrap">
+        <h1>Melody's Portfolio</h1>
+        <div class="project grow">
+            <div class="title">專題</div>
+            <a href="https://xspace-frontend.azurewebsites.net/Home">XSpace前台</a>
+            <a href="https://xspace-admin.azurewebsites.net/login">XSpace後台</a>
+            <div class="account">帳號：admin 密碼:88888888</div>
+        </div>
+        <div class="personal grow">
+            <div class="title">個人作品</div>
+            <a href="./JavaScript/03SecretNum/secretNum.html">終極密碼</a>
+            <a href="./JavaScript/04GuessNum/GuessNum.html">1A2B</a>
+            <a href="./JavaScript/10todo-List/index.html">TODO LIST</a>
+        </div>
+    </div>
 </body>
 </html>
